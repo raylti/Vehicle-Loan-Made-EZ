@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
+
 import { HomeComponent } from './home/home.component';
-=======
+
 
 import { AppForm1Component } from './app-form1/app-form1.component';
 
->>>>>>> cdfc062df444c25bf9fc2808214b85563bfaf573
+
 import { LoginComponent } from './login/login.component';
 import { LoginDashboardComponent } from './login-dashboard/login-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';

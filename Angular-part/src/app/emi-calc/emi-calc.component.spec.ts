@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginDashboardComponent } from './login-dashboard.component';
+import { EmiCalcComponent } from './emi-calc.component';
 
-describe('LoginDashboardComponent', () => {
-  let component: LoginDashboardComponent;
-  let fixture: ComponentFixture<LoginDashboardComponent>;
+describe('EmiCalcComponent', () => {
+  let component: EmiCalcComponent;
+  let fixture: ComponentFixture<EmiCalcComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginDashboardComponent ]
+      declarations: [ EmiCalcComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginDashboardComponent);
+    fixture = TestBed.createComponent(EmiCalcComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { AppForm1Component } from './app-form1/app-form1.component';
 
 import { LoginComponent } from './login/login.component';
-import { LoginDashboardComponent } from './login-dashboard/login-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AppForm2Component } from './app-form2/app-form2.component';
 import { AppForm3Component } from './app-form3/app-form3.component';
@@ -29,7 +28,6 @@ import { LoanOfferComponent } from './loan-offer/loan-offer.component';
     AppForm1Component,
 
     LoginComponent,
-    LoginDashboardComponent,
     AdminDashboardComponent,
     AppForm2Component,
     AppForm3Component,

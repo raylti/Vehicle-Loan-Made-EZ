@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -8,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AppForm1Component } from './app-form1/app-form1.component';
 
 import { LoginComponent } from './login/login.component';
-import { LoginDashboardComponent } from './login-dashboard/login-dashboard.component';
+//import { LoginDashboardComponent } from './login-dashboard/login-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AppForm2Component } from './app-form2/app-form2.component';
 import { AppForm3Component } from './app-form3/app-form3.component';
@@ -29,7 +30,7 @@ import { LoanOfferComponent } from './loan-offer/loan-offer.component';
     AppForm1Component,
 
     LoginComponent,
-    LoginDashboardComponent,
+    //LoginDashboardComponent,
     AdminDashboardComponent,
     AppForm2Component,
     AppForm3Component,
@@ -44,7 +45,9 @@ import { LoanOfferComponent } from './loan-offer/loan-offer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

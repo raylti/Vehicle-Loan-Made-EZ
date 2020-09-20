@@ -1,1 +1,101 @@
 <p>app-form2 works!</p>
+<head>
+  
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Employment Details</h1>
+    <p>Please Fill Your Employment Details</p>
+  </div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td colspan="1">
+          <form class="well form-horizontal">
+            <fieldset>
+              <!-- ------------------------- -->
+             
+              <!-- --------------------------------------------------------------------- -->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Type of Employment</label>
+                <div class="col-md-8 inputGroupContainer">
+                  <div class="input-group">
+                    <select name = "typeOfEmployment" class="form-control" id="sel1">
+                      <option>Service</option>
+                      <option>Private Job</option>
+                      <option>Business</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- --------------------------------------------------- -->
+
+              
+              
+              <div class="form-group">
+               <label class="col-md-4 control-label">   Annual Salary <i class="fa fa-inr" style="font-size:22px;color:red"></i>: {{ salary}} lakhs</label>
+               <div class="col-md-8 inputGroupContainer">
+                 <div class="input-group">
+               
+                  <input
+                    #salarySelector
+                    name="salary"
+                    type="range"
+                    min="1.0"
+                    max="50.0"
+                    (change)="setSalary(salarySelector.value)"
+                    value="1"
+                  />
+                   
+                 </div>
+               </div>
+             </div>
+            
+             <div class="form-group">
+               <label class="col-md-4 control-label">Existing EMI<i class="fa fa-inr" style="font-size:25px;color:red"></i></label>
+               <div class="col-md-8 inputGroupContainer">
+                 <div class="input-group">
+                   <span class="input-group-addon"></span
+                   ><input
+                     id="emi"
+                     name="emi"
+                     placeholder="EMI"
+                     class="form-control"
+                     required="true"
+                     value=""
+                     type="number"
+                   />
+                 </div>
+               </div>
+             </div>
+
+           
+
+
+          
+            
+              
+             
+
+            
+             
+
+
+
+
+
+
+
+
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </fieldset>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-eligibility',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetEligibilityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
 
+  checkEligibility() {
+    this.router.navigate(['loanOffer']);
+  }
 }

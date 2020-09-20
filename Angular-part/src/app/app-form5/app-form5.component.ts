@@ -11,5 +11,12 @@ export class AppForm5Component implements OnInit {
 
   ngOnInit() {
   }
+  selectedFile:null;
+
+  onFileSelected(event){
+    console.log(event);
+    this.selectedFile=event.target.files[0];
+
+  }
 
 }

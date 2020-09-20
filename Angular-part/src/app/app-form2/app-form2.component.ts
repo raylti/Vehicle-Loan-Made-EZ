@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-app-form2',
   templateUrl: './app-form2.component.html',
@@ -11,5 +12,25 @@ export class AppForm2Component implements OnInit {
 
   ngOnInit() {
   }
+  salary:number =1;
+
+    isCollapsed = false;
+
+
+
+  
+
+  setSalary(value){
+    this.salary = value;
+    console.log(this.salary);
+
+
+
 
 }
+
+}
+  
+    
+    
+

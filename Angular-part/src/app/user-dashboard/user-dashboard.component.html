@@ -8,36 +8,53 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
   <div class="container">
-    <h2>User Dashboard</h2>
     
-    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Loan status</button>
-    <div id="demo" class="collapse">
-      Pending 
-      Approved 
-      Rejected
+        <h2>User Dashboard</h2>
+    
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">     
+                <span class="title">Loan Status </span>
+                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+            </div>
+            <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                <div class="card-body">
+                    Pending
+                    Approved
+                    Rejected
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">     
+                <span class="title">Loan Detail</span>
+                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                   Principal
+                   Rate
+                   Tenure
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false">
+                <span class="title">EMI Scheduler</span>
+                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+            </div>
+            <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                    Loan EMI
+                    Total Interest payable
+                    Total Payment
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="container">
-      
-      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Loan detail</button>
-      <div id="demo" class="collapse">
-        Principal
-        Rate
-        Tenure
-      </div>
-    </div>
+</div>
   
-    <div class="container">
-      
-      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">EMI Scheduler</button>
-      <div id="demo" class="collapse">
-        Loan EMI
-        Total Interest payable
-        Total payment 
-      </div>
-    </div>
 
 
   
@@ -45,4 +62,3 @@
 
 </body>
 </html>
-

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,26 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppForm2Component implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
   salary:number =1;
 
-    isCollapsed = false;
-
-
-
-  
+  isCollapsed = false;
 
   setSalary(value){
     this.salary = value;
     console.log(this.salary);
+  }
 
-
-
-
-}
+  save2() {
+    this.router.navigate(['appForm3']);
+  }
 
 }
   

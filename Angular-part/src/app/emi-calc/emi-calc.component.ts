@@ -45,11 +45,11 @@ export class EmiCalcComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return value + '<b>L</b>';
+          return '<b>₹ </b>' + value + '<b>L</b>';
         case LabelType.High:
-          return value + '<b>L</b>';
+          return '<b>₹ </b>' + value + '<b>L</b>';
         default:
-          return value + '<b>L</b>';
+          return '<b>₹ </b>' + value + '<b>L</b>';
       }
     }
   };

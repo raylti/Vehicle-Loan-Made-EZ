@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loan-offer',
@@ -10,13 +11,37 @@ export class LoanOfferComponent implements OnInit {
   interestRate : number = 8.5;
   time : any;
   emi : number;
-  constructor() { }
+  interest : number;
+  full : number;
+
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
 
-  calculateEMI() {
-    this.emi = this.loanAmount * this.interestRate * this.time;
+  result = {
+    emi: "",
+    interest: "",
+    total: ""
+  }
 
+  calculateEMI() {
+    var noOfMonth = 12 * this.time;
+    var monthlyRate = this.interestRate / 100 / 12;
+    var top = Math.pow((1 + monthlyRate), noOfMonth);
+    var bottom = top - 1;
+    var sp = top / bottom;
+    var emi = ((this.loanAmount * monthlyRate) * sp);
+    var full = noOfMonth * emi;
+    var interest = full - this.loanAmount;
+
+    this.result.emi = emi.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    var loanAmount_str = this.loanAmount.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.result.total = full.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.result.interest = interest.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  applyLoan() {
+    this.router.navigate(['appForm1']);
   }
 }

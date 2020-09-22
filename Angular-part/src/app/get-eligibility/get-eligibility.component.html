@@ -1,126 +1,144 @@
 <div class="container">
-    <form class="form-horizontal" role="form">
-        
-        <div>
-            <button class="btn btn-danger" style="float: right;">Apply Loan</button> 
-        </div>
+    <div class="jumbotron">
+        <h1>Apply Loan!</h1>
+        <p> Please Fill Your Details here </p>
+    </div>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td colspan="1">
+                    <form class="well form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <p style="text-decoration: underline; font-size: 25px; margin-top: 20px;"> Vehicle
+                                    Details :- </p>
+                                <label for="type" class="col-sm-3 control-label"> Vehicle Type </label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option value="0">Car</option>
+                                        <option value="1">Bike</option>
+                                    </select>
+                                </div>
+                            </div>
 
-        <!-- Vehicle Details-->
-        <div class="form-group">
-            <p style="text-decoration: underline; font-size: 25px; margin-top: 20px;"> Vehicle Details :- </p>
-            <label for="type" class="col-sm-3 control-label"> Vehicle Type </label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                     <option value="0">Car</option>
-                     <option value="1">Bike</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="make" class="col-sm-3 control-label">Vehicle Make</label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                     <option value="0">Hero MotoCorp Ltd</option>
-                     <option value="1">Maruti Suzuki</option>
-                     <option value="2">Tata Motors</option>
-                     <option value="3">Bajaj Auto Limited</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="model" class="col-sm-3 control-label">Vehicle Model </label>
-            <div class="col-sm-9">
-                <input type="text" id="model" placeholder="Vehicle Model" class="form-control" name= "model">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="exPrice" class="col-sm-3 control-label">Ex Showroom Price </label>
-            <div class="col-sm-9">
-                <input type="text" id="exPrice" placeholder="Ex Showroom Price" class="form-control" name= "exPrice">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="onroadPrice" class="col-sm-3 control-label">On Road Price </label>
-            <div class="col-sm-9">
-                <input type="text" id="onroadPrice" placeholder="On Road Price" class="form-control" name= "onroadPrice">
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label for="make" class="col-sm-3 control-label">Vehicle Make</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option value="0">Hero MotoCorp Ltd</option>
+                                        <option value="1">Maruti Suzuki</option>
+                                        <option value="2">Tata Motors</option>
+                                        <option value="3">Bajaj Auto Limited</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="model" class="col-sm-3 control-label">Vehicle Model </label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="model" placeholder="Vehicle Model" class="form-control"
+                                        name="model">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exPrice" class="col-sm-3 control-label">Ex Showroom Price (₹)</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="exPrice" placeholder="Ex Showroom Price" class="form-control"
+                                        name="exPrice">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="onroadPrice" class="col-sm-3 control-label">On Road Price (₹)</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="onroadPrice" placeholder="On Road Price" class="form-control"
+                                        name="onroadPrice">
+                                </div>
+                            </div>
 
-         <!-- Applicant Details-->
-        <div class="form-group">
-            <p style="text-decoration: underline; font-size: 25px;">Applicant Details :-</p>
-            <label for="Name" class="col-sm-3 control-label">Name</label>
-            <div class="col-sm-9">
-                <input type="text" id="Name" placeholder="Name" class="form-control" autofocus>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="age" class="col-sm-3 control-label">Age </label>
-            <div class="col-sm-9">
-                <input type="number" id="age" placeholder="Age" class="form-control" name= "age" min="18" max="65">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="gender" class="col-sm-3 control-label">Gender </label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                     <option value="0">Male</option>
-                     <option value="1">Female</option>
-                     <option value="2">Other</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="employment" class="col-sm-3 control-label">Type Of Employment </label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                     <option value="0">Salaried</option>
-                     <option value="1">Self Employed</option>
-                     <option value="2">Self Employed Professional</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="salary" class="col-sm-3 control-label">Yearly Salary </label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                    <option value="0">3 lakh to 5  lakh</option>
-                    <option value="1">5 lakh to 10 lakh</option>
-                    <option value="2">10 lakh to 15 lakh</option>
-                    <option value="3">15 lakh to 25 lakh</option>
-                    <option value="4">Above 25 lakh</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="emi" class="col-sm-3 control-label">Existing EMI </label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                     <option value="0">No</option>
-                     <option value="1">Yes</option>
-                </select>
-            </div>
-        </div>
+                            <!-- Applicant Details-->
+                            <div class="form-group">
+                                <p style="text-decoration: underline; font-size: 25px;">Applicant Details :-</p>
+                                <label for="Name" class="col-sm-3 control-label">Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="Name" placeholder="Name" class="form-control" autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="age" class="col-sm-3 control-label">Age </label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="age" placeholder="Age" class="form-control" name="age"
+                                        min="18" max="65">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender" class="col-sm-3 control-label">Gender </label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option value="0">Male</option>
+                                        <option value="1">Female</option>
+                                        <option value="2">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="employment" class="col-sm-3 control-label">Type Of Employment </label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option value="0">Salaried</option>
+                                        <option value="1">Self Employed</option>
+                                        <option value="2">Self Employed Professional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="salary" class="col-sm-3 control-label">Yearly Salary (₹)</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option value="0">3 lakh to 5 lakh</option>
+                                        <option value="1">5 lakh to 10 lakh</option>
+                                        <option value="2">10 lakh to 15 lakh</option>
+                                        <option value="3">15 lakh to 25 lakh</option>
+                                        <option value="4">Above 25 lakh</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="emi" class="col-sm-3 control-label">Existing EMI </label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
 
-        <!-- Contact Details-->
-        <div class="form-group">
-            <p style="text-decoration: underline; font-size: 25px;">Contact Details :-</p>
-            <label for="mobileNumber" class="col-sm-3 control-label">Mobile number </label>
-            <div class="col-sm-9">
-                <input type="mobileNumber" id="mobileNumber" placeholder="Mobile number" class="form-control">
-                <span class="help-block">Your mobile number won't be disclosed anywhere </span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">Email </label>
-            <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
-            </div>
-        </div>
+                            <!-- Contact Details-->
+                            <div class="form-group">
+                                <p style="text-decoration: underline; font-size: 25px;">Contact Details :-</p>
+                                <label for="mobileNumber" class="col-sm-3 control-label">Mobile number </label>
+                                <div class="col-sm-9">
+                                    <input type="mobileNumber" id="mobileNumber" placeholder="Mobile number"
+                                        class="form-control">
+                                    <span class="help-block">Your mobile number won't be disclosed anywhere </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-sm-3 control-label">Email </label>
+                                <div class="col-sm-9">
+                                    <input type="email" id="email" placeholder="Email" class="form-control"
+                                        name="email">
+                                </div>
+                            </div>
 
-         <!-- Check Eligibility-->
-        <div class="col-sm-9">
-            <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 50px;" (click)="checkEligibility()">Check Eligibility</button>
-        </div>
-    </form> <!-- /form -->
-</div> <!-- ./container -->
+                            <!-- Check Eligibility-->
+                            <div class="col-sm-9">
+                                <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 50px;"
+                                    (click)="checkEligibility()">Check Eligibility</button>
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

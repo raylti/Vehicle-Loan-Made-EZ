@@ -1,13 +1,7 @@
-<p>app-form4 works!</p>
-
-
-
 <head>
-  
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+  <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   </head>
+</head>
 
 <div class="container">
   <div class="jumbotron">
@@ -43,7 +37,6 @@
               </div>
               <!-- --------------------------------------------------- -->
 
-              
               <div class="form-group">
                 <label class="col-md-4 control-label">Loan Tenure</label>
                 <div class="col-md-8 inputGroupContainer">
@@ -56,34 +49,14 @@
                       class="form-control"
                       required="true"
                       value="1"
-                      
                       type="number"
+                      max="5"
+                      min="1"
                     />
                   </div>
                 </div>
               </div>
-            
-            
-
-           
-
-
-          
-            
-              
-             
-
-            
-             
-
-
-
-
-
-
-
-
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+              <button type="submit" class="btn btn-primary mb-2" (click)="save4()">Submit</button>
             </fieldset>
           </form>
         </td>

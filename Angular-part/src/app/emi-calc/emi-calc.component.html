@@ -7,7 +7,7 @@
           <div class="form-group" style="margin-top: 20px;">
             <div class="col-md-12">
               <span class="left-title">
-                Vehicle Loan Amount
+                Vehicle Loan Amount (₹)
               </span>
               <input type="text" style="width:44%;float:right;" class="form-control" (blur)="tbupdate(0)"
                 [(ngModel)]="query.amount" placeholder="Loan Amount" name="pemi.highValue" />
@@ -64,7 +64,7 @@
               Loan EMI
             </h5>
             <span class="result">
-              {{result.emi || "--"}}
+              ₹ {{result.emi || "--"}}
             </span>
           </div>
 
@@ -75,7 +75,7 @@
               Total Interest Payable
             </h5>
             <span class="result">
-              {{result.interest || "--"}}
+              ₹ {{result.interest || "--"}}
             </span>
           </div>
 
@@ -85,10 +85,10 @@
               Total Payment
             </h5>
             <h6>
-              (Principal + Interest)
+             (Principal + Interest)
             </h6>
             <span class="result">
-              {{result.total || "--"}}
+              ₹ {{result.total || "--"}}
             </span>
           </div>
         </div>

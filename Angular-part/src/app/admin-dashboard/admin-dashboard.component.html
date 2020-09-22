@@ -8,36 +8,53 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
   <div class="container">
-    <h2>Admin Dashboard</h2>
     
-    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Clients</button>
-    <div id="demo" class="collapse">
-      Name
-      Loan amount 
-      Email
+        <h2>Admin Dashboard</h2>
+    
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">     
+                <span class="title">Clients </span>
+                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+            </div>
+            <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                <div class="card-body">
+                    Name
+                    Loan Amount
+                    Email
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">     
+                <span class="title">Application</span>
+                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                   User ID
+                   Name
+                   Loan Amount
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false">
+                <span class="title">Rejected list</span>
+                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+            </div>
+            <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                    Name
+                    Loan Amount
+                    Email
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="container">
-      
-      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Aplication</button>
-      <div id="demo" class="collapse">
-        User ID
-        Name
-        Loan amount
-      </div>
-    </div>
+</div>
   
-    <div class="container">
-      
-      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Rejected list</button>
-      <div id="demo" class="collapse">
-        Loan EMI
-        Total Interest payable
-        Total payment 
-      </div>
-    </div>
 
 
   
@@ -45,5 +62,3 @@
 
 </body>
 </html>
-
-

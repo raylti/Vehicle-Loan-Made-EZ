@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Identity } from '../loan.model';
 
 @Component({
   selector: 'app-app-form5',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-form5.component.css']
 })
 export class AppForm5Component implements OnInit {
+  identity = new Identity;
 
   constructor() { }
 

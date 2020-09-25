@@ -1,38 +1,34 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="container">
-  <div class="jumbotron">
+<div class="container" style="border: black 1px; background-color: white;">
+  <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image8.jpg'); background-repeat: no-repeat; background-size: cover">
     <h1>Identity  Details</h1>
     <p>Please Fill Your Identity Details below</p>
   </div>
-  <table class="table table-striped">
+  <table class="table table-default">
     <tbody>
       <tr>
         <td colspan="1">
-          <form class="well form-horizontal">
-            <fieldset>
-              <!-- ------------------------- -->
-             
-              <!-- --------------------------------------------------------------------- -->
+          <form class="well form-horizontal" (ngSubmit)="onUpload()" #addForm="ngForm">
+            
               <div class="form-group">
                 <label class="col-md-4 control-label">Aadhar Card  <i class="fa fa-address-card" style="font-size:18px;color:green"></i></label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile">
+                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="aadhaar" [(ngModel)]="identity.aadhaar">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- --------------------------------------------------- -->
 
               <div class="form-group">
                 <label class="col-md-4 control-label">Pan Card  <i class="fa fa-address-card" style="font-size:18px;color:green"></i></label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile">
+                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="pan" [(ngModel)]="identity.pan">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                   </div>
@@ -44,7 +40,7 @@
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile">
+                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="photo" [(ngModel)]="identity.photo">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                   </div>
@@ -56,15 +52,18 @@
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile">
+                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="salarySlip" [(ngModel)]="identity.salarySlip">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <button type="submit" (click)="onUpload" class="btn btn-primary mb-2">Submit</button>
-            </fieldset>
+              <div class="col-md-8 inputGroupContainer">
+                <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px;"
+                  [disabled]="!addForm.valid">Submit For Approval!</button>
+              </div>
+        
           </form>
         </td>
       </tr>

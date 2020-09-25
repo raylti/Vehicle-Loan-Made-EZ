@@ -1,101 +1,152 @@
-<div class="container">
-   <div class="jumbotron">
-      <h1>Personal Details</h1>
+<div class="container" style="border: black 1px; background-color: white;">
+   <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image4.jpg'); background-repeat: no-repeat; background-size: cover">
+      <h1>Personal Details!</h1>
       <p> Please Fill Your Details here </p>
    </div>
-       <table class="table table-striped">
-          <tbody>
-             <tr>
-                <td colspan="1">
-                   <form class="well form-horizontal">
-                      <fieldset>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label"><i class="glyphicon glyphicon-user"></i>Full Name</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text"></div>
-                            </div>
+   <table class="table table-default">
+      <tbody>
+         <tr>
+            <td colspan="1">
+               <form class="well form-horizontal" (ngSubmit)="save1()" #addForm="ngForm">
 
-                            <div class="form-group">
-                              <label class="col-md-4 control-label">Gender </label>
-                              <div class="col-md-8 inputGroupContainer">
-                                  <select class="form-control">
-                                      <option value="0">Male</option>
-                                      <option value="1">Female</option>
-                                      <option value="2">Other</option>
-                                  </select>
-                              </div>
-                          </div>
-                           
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Address Line 1</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="addressLine1" name="addressLine1" placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Address Line 2</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="addressLine2" name="addressLine2" placeholder="Address Line 2" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">City</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">State/Province/Region</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="state" name="state" placeholder="State/Province/Region" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Postal Code/ZIP</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="postcode" name="postcode" placeholder="Postal Code/ZIP" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Country</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group">
-                                  <span class="input-group-addon" style="max-width: 100%;"></span>
-                                  <select class="selectpicker form-control">
-                                     <option>A really long option to push the menu over the edget</option>
-                                  </select>
-                               </div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Email</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="email" name="email" placeholder="Email" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
+                  <div class="form-group">
+                     <label for="firstName" class="col-md-4 control-label">First Name</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <input id="firstName" name="firstName" [(ngModel)]=user.name
+                              placeholder="Enter your First Name" class="form-control" type="text" required
+                              pattern="[A-Z][a-z,A-Z]{2,}" #name='ngModel'>
+                        <span *ngIf="name.touched && name.invalid" class="alert-danger">
+                           Name is invalid!
+                           First letter should be capital.
+                           Length should be minimum of 3 characters.
+                        </span>
+                     </div>
+                  </div>
 
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Password</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="Password" name="Password" placeholder="Password" class="form-control" required="true" value="" type="password"></div>
-                            </div>
-                         </div>
+                  
+                  <div class="form-group">
+                     <label for="age" class="col-md-4 control-label">Age </label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <input type="number" id="age" placeholder="Age" class="form-control" name="age"
+                           [(ngModel)]=user.age required pattern="[2-5][0-9]{1}" min="20" max="59" #age='ngModel'>
+                        <span *ngIf="age.touched && age.invalid" class="alert-danger">
+                           Age should be between 20 years to 59 years.
+                        </span>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">Gender </label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <select class="form-control">
+                           <option value="0">Male</option>
+                           <option value="1">Female</option>
+                           <option value="2">Other</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">Mobile Number</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group"><input id="mobileNumber" name="mobileNumber"
+                              [(ngModel)]="user.mobileNo" placeholder="Mobile Number" class="form-control" type="text"
+                              required pattern="[6-9][0-9]{9}" #mobile='ngModel'></div>
+                        <span *ngIf="mobile.touched && mobile.invalid" class="alert-danger">
+                           Invalid Mobile number!
+                        </span>
+                        <span class="help-block">Your mobile number won't be disclosed anywhere </span>
+                     </div>
+                  </div>
 
 
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Phone Number</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"></span><input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
-                            </div>
-                         </div>
-                        <button type="submit" class="btn btn-primary mb-2" (click)="save1()">Submit</button>
-                     </fieldset>
-                   </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">Email</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group"><input id="email" name="email" [(ngModel)]="user.email"
+                              placeholder="Email" class="form-control" type="email" required="true" #email='ngModel'></div>
+                        <span *ngIf="email.touched && email.invalid" class="alert-danger">
+                           Invalid Email Id!
+                       </span>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">Password</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group"><input id="Password" name="Password" [(ngModel)]="user.password" placeholder="Password"
+                              class="form-control" type="password" required pattern="[a-z,A-Z,0-9][a-z,A-Z,0-9]{5,}" #pwd='ngModel'></div>
+                        <span *ngIf="pwd.touched && pwd.invalid" class="alert-danger">
+                           Invalid Password! Password should be minimum of 6 characters.
+                       </span>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">Address</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group"><input id="address" name="address" [(ngModel)]="user.address"
+                              placeholder="Enter your Address" class="form-control" type="text" required
+                              pattern="[A-Z,a-z,0-9][A-Z,a-z,0-9, ,/,-,.]{2,}" #addr='ngModel'></div>
+                        <span *ngIf="addr.touched && addr.invalid" class="alert-danger">
+                           Invalid Address!
+                        </span>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">State/Province/Region</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <select class="form-control">
+                           <option value="0">Assam</option>
+                           <option value="1">Bihar</option>
+                           <option value="2">Karnataka</option>
+                           <option value="3">Maharashtra</option>
+                           <option value="4">Telangana</option>
+                           <option value="5">West Bengal</option>
+                           <option value="6">Other</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="col-md-4 control-label">City</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <select class="form-control">
+                           <option value="0">Bangalore</option>
+                           <option value="1" selected>Dispur</option>
+                           <option value="2">Gaya</option>
+                           <option value="3">Hyderabad</option>
+                           <option value="4">Kolkata</option>
+                           <option value="5">New Delhi</option>
+                           <option value="6">Mumbai</option>
+                           <option value="7">Mysore</option>
+                           <option value="8">Patna</option>
+                           <option value="9">Thane</option>
+                           <option value="10">Other</option>
+                        </select>
+                     </div>
+                  </div>
                 
+                  <div class="form-group">
+                     <label class=c>Postal Code/ZIP</label>
+                     <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group"><input id="postcode" name="postcode" [(ngModel)]="user.pincode" placeholder="Postal Code/ZIP"
+                              class="form-control" type="text" required pattern="[1-9][0-9]{5}" #pin='ngModel'></div>
+                        <span *ngIf="pin.touched && pin.invalid" class="alert-danger">
+                           Invalid Pincode! Length should be 6 digits.
+                        </span>
+                     </div>
+                  </div>
 
+                  <div class="col-md-8 inputGroupContainer">
+                     <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
+                         [disabled]="!addForm.valid">Submit</button>
+                 </div>
+
+               </form>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>

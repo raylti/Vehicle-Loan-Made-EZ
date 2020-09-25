@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Eligibility } from '../loan.model';
 
 @Component({
   selector: 'app-get-eligibility',
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-eligibility.component.css']
 })
 export class GetEligibilityComponent implements OnInit {
+  eligible = new Eligibility;
 
   constructor(private router : Router) { }
 

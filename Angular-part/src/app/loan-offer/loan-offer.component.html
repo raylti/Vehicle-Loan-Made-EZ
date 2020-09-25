@@ -1,83 +1,104 @@
-<div class="container">
-    <form class="form-horizontal" role="form">
+<div class="container" style="border: black 1px; background-color: white;">
+    <div class="jumbotron text-center"
+        style="margin-bottom:0; margin-top: 20px; background-image: url('../assets/image2.jpg'); background-repeat: no-repeat; background-size: cover">
+        <h1>Loan Offers</h1>
+        <p>Your Loan Quotes!</p>
+    </div>
 
-        <div class="jumbotron text-center" style="margin-bottom:0">
-            <h1>Loan Offers</h1>
-            <p>Your Loan Quotes!</p>
-        </div>
-        <div class="form-group">
-            <label for="principal" class="col-sm-3 control-label">Loan Amount (₹)</label>
-            <div class="col-sm-9">
-                <input type="number" id="principal" placeholder="Enter Loan Amount" class="form-control"
-                    name="principal" [(ngModel)]="loanAmount">
-            </div>
-        </div>
+    <table class="table table-default" style="margin-top: 20px;">
+        <tbody>
+            <tr>
+                <td colspan="1">
+                    <form class="form-horizontal" #addForm="ngForm">
+                        <div class="form-group" style="margin-top:20px;">
+                            <label for="principal" class="col-sm-3 control-label">Loan Amount (₹)</label>
+                            <div class="col-sm-9">
+                                <input type="number" id="principal" placeholder="Enter Loan Amount" class="form-control"
+                                    name="principal" required pattern="[1-4][0-9]{5,6}" min="100000" max="499999"
+                                    [(ngModel)]="loanAmount" #principal='ngModel'>
+                                <span *ngIf="principal.touched && principal.invalid" class="alert-danger">
+                                    We approve loan amount between 1 lakh to 50 lakh only.
+                                </span>
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <label for="rate" class="col-sm-3 control-label">Rate Of Interest</label>
-            <div class="col-sm-9">
-                <select class="form-control">
-                    <option value="0">8.5% p.a.</option>
-                </select>
-                <span class="help-block">This is the interset offered by our bank </span>
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="rate" class="col-sm-3 control-label">Rate Of Interest</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" required>
+                                    <option value="0">8.5% p.a.</option>
+                                </select>
+                                <span class="help-block">This is the interset offered by our bank </span>
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <label for="time" class="col-sm-3 control-label">Tenure of Loan (in Years) </label>
-            <div class="col-sm-9">
-                <input type="number" id="time" placeholder="Enter Loan Tenure" class="form-control" name="time" min="1"
-                    max="5" [(ngModel)]="time">
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="time" class="col-sm-3 control-label">Tenure of Loan (in Years) </label>
+                            <div class="col-sm-9">
+                                <input type="number" id="time" placeholder="Enter Loan Tenure" class="form-control"
+                                    name="time" min="1" max="5" [(ngModel)]="time" required pattern="[1-5]"
+                                    #tenure='ngModel'>
+                                <span *ngIf="tenure.touched && tenure.invalid" class="alert-danger">
+                                    Loan tenure should be between 1 year to 5 year only.
+                                </span>
+                            </div>
+                        </div>
 
-        <div class="col-sm-9">
-            <button type="submit" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#demo"
-                style="margin-bottom: 50px;" (click)="calculateEMI()">
-                Calculate EMI
-            </button>
-        </div>
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary btn-block" data-toggle="collapse"
+                                data-target="#demo" style="margin-bottom: 30px;" (click)="calculateEMI()"
+                                [disabled]="!addForm.valid">
+                                Calculate EMI
+                            </button>
+                        </div>
 
-        <div id="demo" class="collapse">
-            <div class="form-group">
-                <label for="emi" class="col-sm-3 control-label">EMI</label>
-                <div class="col-sm-9">
-                    <p
-                        style="border: 1px solid black; height: 40px; text-orientation: sideways; text-align: center; font-size: large;">
-                        ₹ {{ result.emi }}</p>
-                </div>
-            </div>
+                        <div id="demo" class="collapse">
+                            <div class="form-group">
+                                <label for="emi" class="col-sm-3 control-label">EMI</label>
+                                <div class="col-sm-9">
+                                    <p
+                                        style="border: 1px solid black; height: 40px; text-orientation: sideways; text-align: center; font-size: large;">
+                                        ₹ {{ result.emi }}</p>
+                                </div>
+                            </div>
 
-            <div class="form-group">
-                <label for="emi" class="col-sm-3 control-label">Total Interest Paybale</label>
-                <div class="col-sm-9">
-                    <p
-                        style="border: 1px solid black; height: 40px; text-orientation: sideways; text-align: center; font-size: large;">
-                        ₹ {{ result.interest }}</p>
-                </div>
-            </div>
+                            <div class="form-group">
+                                <label for="emi" class="col-sm-3 control-label">Total Interest Paybale</label>
+                                <div class="col-sm-9">
+                                    <p
+                                        style="border: 1px solid black; height: 40px; text-orientation: sideways; text-align: center; font-size: large;">
+                                        ₹ {{ result.interest }}</p>
+                                </div>
+                            </div>
 
-            <div class="form-group">
-                <label for="emi" class="col-sm-3 control-label">Total Payment (Principal + Interest)</label>
-                <div class="col-sm-9">
-                    <p
-                        style="border: 1px solid black; height: 40px; text-orientation: sideways; text-align: center; font-size: large;">
-                        ₹ {{ result.total }}</p>
-                </div>
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label for="emi" class="col-sm-3 control-label">Total Payment (Principal +
+                                    Interest)</label>
+                                <div class="col-sm-9">
+                                    <p
+                                        style="border: 1px solid black; height: 40px; text-orientation: sideways; text-align: center; font-size: large;">
+                                        ₹ {{ result.total }}</p>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="col-sm-9">
-            <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 50px;" (click)="applyLoan()">
-                Apply Loan
-            </button>
-        </div>
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
+                                (click)="applyLoan()" [disabled]="!addForm.valid">
+                                Apply Loan
+                            </button>
+                        </div>
 
-        <div class="col-sm-9">
-            <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 50px;">
-                EMI Scheduler
-            </button>
-        </div>
-        
-    </form> <!-- /form -->
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
+                                [disabled]="!addForm.valid">
+                                EMI Scheduler
+                            </button>
+                        </div>
+
+                    </form> <!-- /form -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div> <!-- ./container -->

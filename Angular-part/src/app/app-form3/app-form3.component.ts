@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Vehicle } from '../loan.model';
 
 @Component({
   selector: 'app-app-form3',
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app-form3.component.css']
 })
 export class AppForm3Component implements OnInit {
+  vehicle = new Vehicle;
 
   constructor(private router : Router) { }
 

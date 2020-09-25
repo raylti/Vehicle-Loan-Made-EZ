@@ -1,61 +1,57 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<div class="container">
-  <div class="jumbotron">
-    <h1>Employment Details</h1>
+<div class="container" style="border: black 1px; background-color: white;">
+  <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image5.jpg'); background-repeat: no-repeat; background-size: cover">
+    <h1>Employment Details!</h1>
     <p>Please Fill Your Employment Details</p>
   </div>
-  <table class="table table-striped">
+  <table class="table table-default">
     <tbody>
       <tr>
         <td colspan="1">
-          <form class="well form-horizontal">
-            <fieldset>
-              <!-- ------------------------- -->
+          <form class="well form-horizontal" (ngSubmit)="save2()" #addForm="ngForm">
 
-              <!-- --------------------------------------------------------------------- -->
-              <div class="form-group">
-                <label class="col-md-4 control-label">Type of Employment</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <select name="typeOfEmployment" class="form-control" id="sel1">
-                      <option value="0">Salaried</option>
-                      <option value="1">Self Employed</option>
-                      <option value="2">Self Employed Professional</option>
-                    </select>
-                  </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Type of Employment</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <select name="typeOfEmployment" class="form-control" id="sel1">
+                    <option value="0">Salaried</option>
+                    <option value="1">Self Employed</option>
+                    <option value="2">Self Employed Professional</option>
+                  </select>
                 </div>
               </div>
-              <!-- --------------------------------------------------- -->
+            </div>
 
-              <div class="form-group">
-                <label class="col-md-4 control-label"> Annual Salary <i class="fa fa-inr"
-                    style="font-size:22px;color:red"></i>: {{ salary}} lakhs</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
+            <div class="form-group">
+              <label class="col-md-4 control-label"> Annual Salary : ₹ {{ salary}} lakhs</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
 
-                    <input #salarySelector name="salary" type="range" min="1.0" max="50.0"
-                      (change)="setSalary(salarySelector.value)" value="1" />
+                  <input #salarySelector name="salary" type="range" min="1.0" max="50.0"
+                    (change)="setSalary(salarySelector.value)" value="1" />
 
-                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label class="col-md-4 control-label">Existing EMI<i class="fa fa-inr"
-                    style="font-size:25px;color:red"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <span class="input-group-addon"></span><input id="emi" name="emi" placeholder="EMI"
-                      class="form-control" required="true" value="" type="number" />
-                  </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Existing EMI (₹)</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <input id="emi" name="emi" placeholder="EMI" [(ngModel)]="employ.existingEmi" class="form-control"
+                    value="" type="number" required pattern="[0-9]{1,}" #emi='ngModel' />
                 </div>
+                <span *ngIf="emi.touched && emi.invalid" class="alert-danger">
+                  Invalid EMI value!
+                </span>
               </div>
-              <button type="submit" class="btn btn-primary mb-2" (click)="save2()">Submit</button>
-            </fieldset>
+            </div>
+
+            <div class="col-md-8 inputGroupContainer">
+              <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
+                  [disabled]="!addForm.valid">Submit</button>
+          </div>
+            
           </form>
         </td>
       </tr>

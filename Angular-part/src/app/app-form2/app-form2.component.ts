@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Employment } from '../loan.model';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app-form2.component.css']
 })
 export class AppForm2Component implements OnInit {
+  employ = new Employment;
 
   constructor(private router : Router) { }
 

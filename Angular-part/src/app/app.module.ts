@@ -22,6 +22,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 import { GetEligibilityComponent } from './get-eligibility/get-eligibility.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
 
 
 
@@ -43,7 +44,8 @@ import { LoanOfferComponent } from './loan-offer/loan-offer.component';
     AboutUsComponent,
     EmiCalcComponent,
     GetEligibilityComponent,
-    LoanOfferComponent
+    LoanOfferComponent,
+    LoginAdminComponent
 
   ],
   imports: [

@@ -1,99 +1,76 @@
-<p>app-form3 works! </p>
-
-
 <head>
-  
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>Vehicle Details</h1>
+<div class="container" style="border: black 1px; background-color: white;">
+  <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image6.jpg'); background-repeat: no-repeat; background-size: cover">
+    <h1>Vehicle Details!</h1>
     <p>Please Fill Your Vehicle Details below</p>
   </div>
-  <table class="table table-striped">
+  <table class="table table-default">
     <tbody>
       <tr>
         <td colspan="1">
-          <form class="well form-horizontal">
-            <fieldset>
-              <!-- ------------------------- -->
-             
-              <!-- --------------------------------------------------------------------- -->
-              <div class="form-group">
-                <label class="col-md-4 control-label">Car Make  <i class="fa fa-car" style="font-size:18px;color:green"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <select name = "carMake" class="form-control" id="sel1">
-                      <option>Maruti</option>
-                      <option>Honda</option>
-                      <option>Tata</option>
-                    </select>
-                  </div>
+          <form class="well form-horizontal" (ngSubmit)="save3()" #addForm="ngForm">
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Car Make <i class="fa fa-car"
+                  style="font-size:18px;color:green"></i></label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <select name="carMake" class="form-control" id="sel1">
+                    <option value="0">Hero MotoCorp Ltd</option>
+                    <option value="1">Maruti Suzuki</option>
+                    <option value="2">Tata Motors</option>
+                    <option value="3">Yamaha</option>
+                  </select>
                 </div>
               </div>
-              <!-- --------------------------------------------------- -->
+            </div>
 
-              
-              
-              <div class="form-group">
-                <label class="col-md-4 control-label">Car Make  <i class="fa fa-car" style="font-size:18px;color:green"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <select name = "carModel" class="form-control" id="sel2">
-                      <option>Maruti</option>
-                      <option>Honda</option>
-                      <option>Tata</option>
-                    </select>
-                  </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Car Model <i class="fa fa-car"
+                  style="font-size:18px;color:green"></i></label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <select name="carModel" class="form-control" id="sel2">
+                    <option value="0">Hero Splendor Plus</option>
+                    <option value="1">Hero HF Deluxe </option>
+                    <option value="2">Maruti Swift</option>
+                    <option value="3">Maruti Baleno</option>
+                    <option value="4">Tata Nexon</option>
+                    <option value="5">Tata Altroz</option>
+                    <option value="6">Yamaha MT 15</option>
+                    <option value="7">Yamaha YZF R15 V3</option>
+                  </select>
                 </div>
               </div>
-            
-             <div class="form-group">
-               <label class="col-md-4 control-label">Exshowroom Price<i class="fa fa-inr" style="font-size:25px;color:red"></i></label>
-               <div class="col-md-8 inputGroupContainer">
-                 <div class="input-group">
-                   <span class="input-group-addon"></span
-                   ><input
-                     id="price"
-                     name="price"
-                     placeholder="Price in Rupees"
-                     class="form-control"
-                     required="true"
-                     value=""
-                     type="number"
-                   />
-                 </div>
-               </div>
-             </div>
+            </div>
 
-           
+            <div class="form-group">
+              <label class="col-md-4 control-label">Exshowroom Price (₹)</label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"></span><input id="price" name="price" placeholder="Price in Rupees"
+                    [(ngModel)]=vehicle.exPrice class="form-control" type="number" min="10000" required
+                    pattern="[1-9][0-9]{4,}" #ePrice='ngModel' />
+                </div>
+                <span *ngIf="ePrice.touched && ePrice.invalid" class="alert-danger">
+                  Price is invalid!
+                  Enter Price > ₹ 10,000
+                </span>
+              </div>
+            </div>
 
+            <div class="col-md-8 inputGroupContainer">
+              <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
+                  [disabled]="!addForm.valid">Submit</button>
+          </div>
 
-          
-            
-              
-             
-
-            
-             
-
-
-
-
-
-
-
-
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            </fieldset>
           </form>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
-

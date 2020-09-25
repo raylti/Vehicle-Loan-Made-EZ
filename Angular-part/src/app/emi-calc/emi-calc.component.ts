@@ -45,17 +45,17 @@ export class EmiCalcComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return value + '<b>L</b>';
+          return '<b>₹ </b>' + value + '<b>L</b>';
         case LabelType.High:
-          return value + '<b>L</b>';
+          return '<b>₹ </b>' + value + '<b>L</b>';
         default:
-          return value + '<b>L</b>';
+          return '<b>₹ </b>' + value + '<b>L</b>';
       }
     }
   };
   roptions: Options = {
-    floor: 8.5,
-    ceil: 8.5,
+    floor: 5,
+    ceil: 20,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
@@ -123,7 +123,7 @@ export class EmiCalcComponent implements OnInit {
 
     var loanAmount = Number(this.pemi.value) * 100000;
     var numberOfMonths = (this.yrToggel) ? (Number(this.temi.value) * 12) : Number(this.memi.value);
-    var rateOfInterest = 8.5;
+    var rateOfInterest = Number(this.remi.value);
     var monthlyInterestRatio = (rateOfInterest / 100) / 12;
 
     this.query.amount = loanAmount.toString();

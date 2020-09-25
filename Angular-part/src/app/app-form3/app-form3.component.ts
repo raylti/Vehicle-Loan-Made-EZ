@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Vehicle } from '../loan.model';
 
 @Component({
   selector: 'app-app-form3',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-form3.component.css']
 })
 export class AppForm3Component implements OnInit {
+  vehicle = new Vehicle;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
 
+  save3() {
+    this.router.navigate(['appForm4']);
+  }
 }

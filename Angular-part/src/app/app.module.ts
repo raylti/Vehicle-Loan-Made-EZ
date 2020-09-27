@@ -10,8 +10,6 @@ import { HomeComponent } from './home/home.component';
 
 import { AppForm1Component } from './app-form1/app-form1.component';
 
-import { LoginComponent } from './login/login.component';
-
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AppForm2Component } from './app-form2/app-form2.component';
 import { AppForm3Component } from './app-form3/app-form3.component';
@@ -23,6 +21,7 @@ import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 import { GetEligibilityComponent } from './get-eligibility/get-eligibility.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 
 
@@ -33,8 +32,6 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
     HomeComponent,
 
     AppForm1Component,
-
-    LoginComponent,
     AdminDashboardComponent,
     AppForm2Component,
     AppForm3Component,
@@ -45,7 +42,8 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
     EmiCalcComponent,
     GetEligibilityComponent,
     LoanOfferComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    LoginUserComponent
 
   ],
   imports: [

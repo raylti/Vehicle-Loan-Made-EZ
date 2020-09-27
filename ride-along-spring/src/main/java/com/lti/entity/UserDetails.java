@@ -56,6 +56,18 @@ public class UserDetails {
 	@OneToOne(mappedBy = "v", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private VehicleDetails veh;
 	
+	@OneToOne(mappedBy = "l", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private LoanDetails loan;
+	
+
+	
+	public LoanDetails getLoan() {
+		return loan;
+	}
+
+	public void setLoan(LoanDetails loan) {
+		this.loan = loan;
+	}
 
 	public VehicleDetails getVeh() {
 		return veh;

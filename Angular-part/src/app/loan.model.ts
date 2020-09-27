@@ -21,7 +21,7 @@ export class User {
 }
 
 export class Employment {
-    public employmentType :number;
+    public employmentType : string;
     public annualSal : number;
     public existingEmi : number;
 }

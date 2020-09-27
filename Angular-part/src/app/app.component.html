@@ -1,41 +1,100 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand " href="#">Vehicle Loan Made EZ</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        
-        <a class="nav-link" [routerLink]="['aboutUs']">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['emiCalculator']">EMI Calculator</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['appForm1']">New User?</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['applyLoan']">Apply Loan</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Login
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" [routerLink]="['login']">User</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="container-fluid">
-    <router-outlet></router-outlet>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-  
+<head>
+  <title>Vehicle Loan</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+
+  <!-- ElegantFonts CSS -->
+  <link rel="stylesheet" href="../assets/css/elegant-fonts.css">
+
+  <!-- themify-icons CSS -->
+  <link rel="stylesheet" href="../assets/css/themify-icons.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="top-header-bar">
+      <div class="container">
+        <div class="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center">
+          <div
+            class="col-12 col-lg-8 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+            <div class="header-bar-email">
+              <p>MAIL: <span>contact@RIDEALONGBANK.com</span></p>
+            </div><!-- .header-bar-email -->
+
+            <div class="header-bar-text">
+              <p>MOBILE: <span>+91 7003397408 / 9855415269</span></p>
+            </div><!-- .header-bar-text -->
+          </div><!-- .col -->
+
+          <div
+            class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+            <div class="apply-btn">
+              <a class="nav-link" [routerLink]="['applyLoan']">Apply Now</a>
+            </div><!-- .apply-btn -->
+          </div><!-- .col -->
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </div><!-- .top-header-bar -->
+
+    <div class="nav-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
+            <div class="site-branding d-flex align-items-center">
+              <a class="d-block" href="index.html" rel="home"><img class="d-block" src="../assets/logo.jpg" alt="logo"></a>
+            </div><!-- .site-branding -->
+
+            <nav class="site-navigation d-flex justify-content-end align-items-center">
+              <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  
+                  <a class="nav-link" [routerLink]="['aboutUs']">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['emiCalculator']">EMI Calculator</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['appForm1']">New User?</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['applyLoan']">Apply Loan</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Login
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" [routerLink]="['user']">User</a>
+                    <a class="dropdown-item" [routerLink]="['admin']">Admin</a>
+                  </div>
+                </li>
+              </ul>
+            </nav><!-- .site-navigation -->
+
+            <div class="container-fluid">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </header>
+   </body>
+</html>     

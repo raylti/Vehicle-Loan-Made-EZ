@@ -16,7 +16,7 @@ body {
 
 p.mb-1 {
     font-size: 25px;
-    color: #eff1f8
+    color: #eff1f8;
 }
 
 .btn-primary {
@@ -61,8 +61,8 @@ p.mb-1 {
     top: 15px;
     left: 10px;
     transition: all 200ms;
-    opacity: 0.5;
-    font-size: 80%
+    opacity: 0.8;
+    font-size: 100%
 }
 
 .form-control:focus+.form-control-placeholder,
@@ -71,7 +71,7 @@ p.mb-1 {
     transform: translate3d(0, -90%, 0);
     opacity: 1;
     top: 10px;
-    color: #8B92AC
+    color: black
 }
 
 .btn-block {
@@ -89,6 +89,20 @@ p.mb-1 {
     font-size: 15px;
     color: #D0E6FF
 }
+
+.forgot {
+    text-align: left;
+    color:blue; 
+    cursor: pointer;
+    text-decoration: underline; 
+  }
+  .new {
+    text-align: right;
+    background-color: white; 
+    color:red; 
+    cursor: pointer;
+    text-decoration: underline;
+  }
 
 /*.bg-img{
     min-height: 100vh;

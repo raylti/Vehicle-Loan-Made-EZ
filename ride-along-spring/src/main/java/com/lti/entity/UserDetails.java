@@ -14,12 +14,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users_det")
-@SequenceGenerator(name = "useq" ,sequenceName = "users_seq",allocationSize = 1,initialValue = 101)
+@SequenceGenerator(name = "useq" ,sequenceName = "users_seq",initialValue = 101)
 public class UserDetails {
 	
 	@Id
-	@GeneratedValue(generator = "useq",strategy = GenerationType.TABLE)
-	
+	@GeneratedValue(generator = "useq",strategy = GenerationType.SEQUENCE)
 	private int uid;
 	
 	@Column(length = 20)
@@ -46,9 +45,10 @@ public class UserDetails {
 	@Column(length = 15)
 	private String city;
 	
-	
-	private int pincode;
-	private int mobileNo;
+	@Column(length = 10)
+	private String pincode;
+	@Column(length = 15)
+	private String mobileNo;
 	
 	@OneToOne(mappedBy = "e", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private EmploymentDetails emp;
@@ -149,19 +149,21 @@ public class UserDetails {
 		this.city = city;
 	}
 
-	public int getPincode() {
+	
+
+	public String getPincode() {
 		return pincode;
 	}
 
-	public void setPincode(int pincode) {
+	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
 
-	public int getMobileNo() {
+	public String getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(int mobileNo) {
+	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 

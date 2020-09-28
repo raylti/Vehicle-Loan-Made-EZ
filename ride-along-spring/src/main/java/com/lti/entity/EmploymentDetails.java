@@ -12,76 +12,60 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "emp_det")
-@SequenceGenerator(name = "eseq" ,sequenceName = "emp_seq",allocationSize = 101)
+@SequenceGenerator(name = "eseq", sequenceName = "emp_seq", initialValue = 101,allocationSize = 1)
 public class EmploymentDetails {
+	
 	@Id
-	@GeneratedValue( generator = "eseq" ,strategy = GenerationType.TABLE)
+	@GeneratedValue(generator = "eseq", strategy = GenerationType.SEQUENCE)
 	private int eid;
-	
+
 	@Column(length = 20)
-	 private String employmentType; 
-	 private  double annualSal;
-	 private  double existingEmi; 
-	 
+	private String employmentType;
+	private double annualSal;
+	private double existingEmi;
 
-		@OneToOne
-		@JoinColumn(name = "uid")
-		private UserDetails e;
+	@OneToOne
+	@JoinColumn(name = "uid")
+	private UserDetails e;
 
+	public int getEid() {
+		return eid;
+	}
 
-		public int getEid() {
-			return eid;
-		}
+	public void setEid(int eid) {
+		this.eid = eid;
+	}
 
+	public String getEmploymentType() {
+		return employmentType;
+	}
 
-		public void setEid(int eid) {
-			this.eid = eid;
-		}
+	public void setEmploymentType(String employmentType) {
+		this.employmentType = employmentType;
+	}
 
+	public double getAnnualSal() {
+		return annualSal;
+	}
 
-		public String getEmploymentType() {
-			return employmentType;
-		}
+	public void setAnnualSal(double annualSal) {
+		this.annualSal = annualSal;
+	}
 
+	public double getExistingEmi() {
+		return existingEmi;
+	}
 
-		public void setEmploymentType(String employmentType) {
-			this.employmentType = employmentType;
-		}
+	public void setExistingEmi(double existingEmi) {
+		this.existingEmi = existingEmi;
+	}
 
+	public UserDetails getE() {
+		return e;
+	}
 
-		public double getAnnualSal() {
-			return annualSal;
-		}
-
-
-		public void setAnnualSal(double annualSal) {
-			this.annualSal = annualSal;
-		}
-
-
-		public double getExistingEmi() {
-			return existingEmi;
-		}
-
-
-		public void setExistingEmi(double existingEmi) {
-			this.existingEmi = existingEmi;
-		}
-
-
-		public UserDetails getE() {
-			return e;
-		}
-
-
-		public void setE(UserDetails e) {
-			this.e = e;
-		}
-		
-		
-	
-	
-	
-	
+	public void setE(UserDetails e) {
+		this.e = e;
+	}
 
 }

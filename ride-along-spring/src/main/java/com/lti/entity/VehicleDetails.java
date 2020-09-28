@@ -2,6 +2,9 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -9,8 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "vehicle_det")
-@SequenceGenerator(name = "vseq" ,sequenceName = "veh_seq",allocationSize = 101)
+@SequenceGenerator(name = "vseq" ,sequenceName = "veh_seq",initialValue =  101)
 public class VehicleDetails {
+	
+	@Id
+	@GeneratedValue(generator = "vseq", strategy = GenerationType.SEQUENCE)
+	private int vid;
 	
 	@Column(length = 15)
 	private String carMake;

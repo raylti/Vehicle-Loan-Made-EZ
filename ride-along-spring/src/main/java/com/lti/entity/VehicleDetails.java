@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "vehicle_det")
 @SequenceGenerator(name = "vseq" ,sequenceName = "veh_seq",initialValue =  101,allocationSize = 1)
+@NamedQuery(name = "max_id1", query = "SELECT MAX(user_id) FROM UserDetails")
 public class VehicleDetails {
 	
 	@Id

@@ -6,17 +6,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "emp_det")
-@SequenceGenerator(name = "eseq" ,sequenceName = "emp_seq",initialValue = 101,allocationSize = 1)
+@SequenceGenerator(name = "empseq" ,sequenceName = "empl_seq",initialValue = 101,allocationSize = 1)
+@NamedQuery(name = "max_id2", query = "SELECT MAX(user_id) FROM UserDetails")
 public class EmploymentDetails {
 
 	@Id
-	@GeneratedValue(generator = "eseq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "empseq", strategy = GenerationType.SEQUENCE)
 	private int eid;
 	
 	@Column(length = 20)

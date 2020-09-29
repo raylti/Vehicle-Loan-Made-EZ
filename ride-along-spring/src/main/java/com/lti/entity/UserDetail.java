@@ -13,9 +13,9 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "users_det")
+@Table(name = "users")
 @SequenceGenerator(name = "useq" ,sequenceName = "users_seq",initialValue = 101,allocationSize = 1)
-public class UserDetails {
+public class UserDetail {
 	
 	@Id
 	@GeneratedValue(generator = "useq",strategy = GenerationType.SEQUENCE)
@@ -50,30 +50,28 @@ public class UserDetails {
 	@Column(length = 15)
 	private String mobileNo;
 	
-	@OneToOne(mappedBy = "e", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	private EmploymentDetails emp;
+	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private EmploymentDetail emp;
 	
-	@OneToOne(mappedBy = "v", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	private VehicleDetails veh;
+	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private VehicleDetail veh;
 	
-	@OneToOne(mappedBy = "l", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	private LoanDetails loan;
+	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private LoanDetail loan;
 	
-
-	
-	public LoanDetails getLoan() {
+	public LoanDetail getLoan() {
 		return loan;
 	}
 
-	public void setLoan(LoanDetails loan) {
+	public void setLoan(LoanDetail loan) {
 		this.loan = loan;
 	}
 
-	public VehicleDetails getVeh() {
+	public VehicleDetail getVeh() {
 		return veh;
 	}
 
-	public void setVeh(VehicleDetails veh) {
+	public void setVeh(VehicleDetail veh) {
 		this.veh = veh;
 	}
 
@@ -150,8 +148,6 @@ public class UserDetails {
 		this.city = city;
 	}
 
-	
-
 	public String getPincode() {
 		return pincode;
 	}
@@ -168,22 +164,11 @@ public class UserDetails {
 		this.mobileNo = mobileNo;
 	}
 
-	public EmploymentDetails getEmp() {
+	public EmploymentDetail getEmp() {
 		return emp;
 	}
 
-	public void setEmp(EmploymentDetails emp) {
+	public void setEmp(EmploymentDetail emp) {
 		this.emp = emp;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

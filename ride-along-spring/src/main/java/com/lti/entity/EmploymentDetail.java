@@ -14,12 +14,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "emp_det")
 @SequenceGenerator(name = "empseq" ,sequenceName = "empl_seq",initialValue = 101,allocationSize = 1)
-@NamedQuery(name = "max_id2", query = "SELECT MAX(user_id) FROM UserDetails")
-public class EmploymentDetails {
+@NamedQuery(name = "max_id2", query = "SELECT MAX(user_id) FROM UserDetail")
+public class EmploymentDetail {
 
 	@Id
 	@GeneratedValue(generator = "empseq", strategy = GenerationType.SEQUENCE)
-	private int eid;
+	private int eId;
 	
 	@Column(length = 20)
 	private String employmentType;
@@ -28,14 +28,14 @@ public class EmploymentDetails {
 	
 	@OneToOne
 	@JoinColumn(name = "user_id")
-	private UserDetails e;
+	private UserDetail user;
 
-	public int getEid() {
-		return eid;
+	public int geteId() {
+		return eId;
 	}
 
-	public void setEid(int eid) {
-		this.eid = eid;
+	public void seteId(int eId) {
+		this.eId = eId;
 	}
 
 	public String getEmploymentType() {
@@ -62,11 +62,11 @@ public class EmploymentDetails {
 		this.existingEmi = existingEmi;
 	}
 
-	public UserDetails getE() {
-		return e;
+	public UserDetail getUser() {
+		return user;
 	}
 
-	public void setE(UserDetails e) {
-		this.e = e;
+	public void setUser(UserDetail user) {
+		this.user = user;
 	}
 }

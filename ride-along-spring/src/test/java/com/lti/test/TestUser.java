@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.lti.entity.EmploymentDetails;
-import com.lti.entity.LoanDetails;
-import com.lti.entity.UserDetails;
-import com.lti.entity.VehicleDetails;
+import com.lti.entity.EmploymentDetail;
+import com.lti.entity.LoanDetail;
+import com.lti.entity.UserDetail;
+import com.lti.entity.VehicleDetail;
 import com.lti.repo.UserRepo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,7 +23,7 @@ public class TestUser {
 	
 	@Test
 	public void testSave() {
-		UserDetails u1 = new UserDetails();
+		UserDetail u1 = new UserDetail();
 		u1.setName("Rahul");
 		u1.setAddress("Rajeev Nagar");
 		u1.setAge(22);
@@ -36,25 +36,25 @@ public class TestUser {
 		u1.setState("Bihar");
 		
 		
-		VehicleDetails v1 = new VehicleDetails();
+		VehicleDetail v1 = new VehicleDetail();
 		v1.setCarMake("Honda");
 		v1.setCarModel("Honda");
 		v1.setExPrice(20000.0);
 		
-		LoanDetails l1 = new LoanDetails();
+		LoanDetail l1 = new LoanDetail();
 		l1.setLoanAmount(5000.0);
 		l1.setInterestRate(8.5);
 		l1.setTenure(5);
 		l1.setLoanStatus("Pending");
 		
-		EmploymentDetails e1 =  new EmploymentDetails();
+		EmploymentDetail e1 =  new EmploymentDetail();
 		e1.setExistingEmi(5000.0);
 		e1.setAnnualSal(50000.0);
 		e1.setEmploymentType("Salaried");
 		
-		v1.setV(u1);
-		l1.setL(u1);
-		e1.setE(u1);
+		v1.setUser(u1);
+		l1.setUser(u1);
+		e1.setUser(u1);
 		
 		u1.setVeh(v1);
 		u1.setLoan(l1);
@@ -65,31 +65,31 @@ public class TestUser {
 	
 	@Test
 	public void fetchUser() {
-		UserDetails u = repo.fetchUser(104);
-		EmploymentDetails e1 = u.getEmp();
-		VehicleDetails v1 = u.getVeh();
-		LoanDetails l1 = u.getLoan();
+		UserDetail u = repo.fetchUser(101);
+		EmploymentDetail e1 = u.getEmp();
+		VehicleDetail v1 = u.getVeh();
+		LoanDetail l1 = u.getLoan();
 		
 		System.out.println(u.getName() + "\t" + e1.getEmploymentType() + "\t" + v1.getCarModel() + "\t" + l1.getLoanAmount());
 	}
 	
 	@Test
 	public void fetchByLoanStatus() {
-		List<LoanDetails> result = repo.fetchByLoanStatus("Rejected");
-		for(LoanDetails l: result) {
+		List<LoanDetail> result = repo.fetchByLoanStatus("Pending");
+		for(LoanDetail l: result) {
 			System.out.println(l.getLoanAmount() + "\t" + l.getTenure());
-			System.out.println(l.getL().getName());
+			System.out.println(l.getUser().getName());
 		}
 	}
 	
 	@Test
 	public void changeLoanStatus() {
-		repo.changeStatus(104,"Rejected");
+		repo.changeStatus(101,"Rejected");
 	}
 	
 	@Test
 	public void saveUserDetails() {
-		UserDetails u1 = new UserDetails();
+		UserDetail u1 = new UserDetail();
 		u1.setName("Abhinav");
 		u1.setAddress("Rajeev Nagar");
 		u1.setAge(22);
@@ -106,7 +106,7 @@ public class TestUser {
 	
 	@Test
 	public void saveLoanDetails() {
-		LoanDetails l1 = new LoanDetails();
+		LoanDetail l1 = new LoanDetail();
 		l1.setLoanAmount(6000.0);
 		l1.setInterestRate(8.5);
 		l1.setTenure(3);
@@ -117,7 +117,7 @@ public class TestUser {
 	
 	@Test
 	public void saveVehicleDetails() {
-		VehicleDetails v1 = new VehicleDetails();
+		VehicleDetail v1 = new VehicleDetail();
 		v1.setCarMake("Honda");
 		v1.setCarModel("Honda");
 		v1.setExPrice(20000.0);
@@ -127,7 +127,7 @@ public class TestUser {
 	
 	@Test
 	public void saveEmploymentDetails() {
-		EmploymentDetails e1 =  new EmploymentDetails();
+		EmploymentDetail e1 =  new EmploymentDetail();
 		e1.setExistingEmi(5000.0);
 		e1.setAnnualSal(50000.0);
 		e1.setEmploymentType("Salaried");

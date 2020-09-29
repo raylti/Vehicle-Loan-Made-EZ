@@ -15,15 +15,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "loan_det")
 @SequenceGenerator(name = "loseq" ,sequenceName = "loan_seq",initialValue = 101,allocationSize = 1)
-@NamedQuery(name = "loan_status", query = "FROM LoanDetails WHERE loanStatus =:crl")
-@NamedQuery(name = "max_id", query = "SELECT MAX(user_id) FROM UserDetails")
-public class LoanDetails {
+@NamedQuery(name = "loan_status", query = "FROM LoanDetail WHERE loanStatus =:crl")
+@NamedQuery(name = "max_id", query = "SELECT MAX(user_id) FROM UserDetail")
+public class LoanDetail {
 	
 	@Id
 	@GeneratedValue(generator = "loseq", strategy = GenerationType.SEQUENCE)
-	private int lid;
+	private int lId;
 	
-	 private double loanAmount;
+	private double loanAmount;
 	private double interestRate;
 	private int tenure;
 	
@@ -32,7 +32,7 @@ public class LoanDetails {
 	
 	@OneToOne
 	@JoinColumn(name = "user_id")
-	private UserDetails l;
+	private UserDetail user;
 
 	public double getLoanAmount() {
 		return loanAmount;
@@ -58,20 +58,20 @@ public class LoanDetails {
 		this.tenure = tenure;
 	}
 
-	public UserDetails getL() {
-		return l;
+	public int getlId() {
+		return lId;
 	}
 
-	public void setL(UserDetails l) {
-		this.l = l;
+	public void setlId(int lId) {
+		this.lId = lId;
 	}
 
-	public int getLid() {
-		return lid;
+	public UserDetail getUser() {
+		return user;
 	}
 
-	public void setLid(int lid) {
-		this.lid = lid;
+	public void setUser(UserDetail user) {
+		this.user = user;
 	}
 
 	public String getLoanStatus() {

@@ -2,26 +2,26 @@ package com.lti.repo;
 
 import java.util.List;
 
-import com.lti.entity.EmploymentDetails;
-import com.lti.entity.LoanDetails;
-import com.lti.entity.UserDetails;
-import com.lti.entity.VehicleDetails;
+import com.lti.entity.EmploymentDetail;
+import com.lti.entity.LoanDetail;
+import com.lti.entity.UserDetail;
+import com.lti.entity.VehicleDetail;
 
 public interface UserRepo {
 
-	void saveUser (UserDetails user);
+	void saveUser (UserDetail user);
 	
-	void saveUserDetails(UserDetails user);
+	void saveUserDetails(UserDetail user);
 	
-	void saveLoanDetails(LoanDetails loan);
+	void saveLoanDetails(LoanDetail loan);
 	
-	void saveVehicleDetails(VehicleDetails vehicle);
+	void saveVehicleDetails(VehicleDetail vehicle);
 	
-	void saveEmploymentDetails(EmploymentDetails employment);
+	void saveEmploymentDetails(EmploymentDetail employment);
 	
-	UserDetails fetchUser(int uid);
+	UserDetail fetchUser(int uid);
 	
-	List<LoanDetails> fetchByLoanStatus(String status);
+	List<LoanDetail> fetchByLoanStatus(String status);
 	
 	void changeStatus(int lid, String status);
 	

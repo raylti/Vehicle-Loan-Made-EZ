@@ -9,10 +9,10 @@ import javax.transaction.Transactional.TxType;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.entity.EmploymentDetails;
-import com.lti.entity.LoanDetails;
-import com.lti.entity.UserDetails;
-import com.lti.entity.VehicleDetails;
+import com.lti.entity.EmploymentDetail;
+import com.lti.entity.LoanDetail;
+import com.lti.entity.UserDetail;
+import com.lti.entity.VehicleDetail;
 
 @Repository
 public class UserRepoImpl implements UserRepo {
@@ -22,56 +22,56 @@ public class UserRepoImpl implements UserRepo {
 	private EntityManager em;
 	
 	@Transactional(value = TxType.REQUIRED)
-	public void saveUser(UserDetails user) {
+	public void saveUser(UserDetail user) {
 		em.persist(user);
 	}
 
-	public UserDetails fetchUser(int uid) {
-		UserDetails u = em.find(UserDetails.class, uid);
+	public UserDetail fetchUser(int uid) {
+		UserDetail u = em.find(UserDetail.class, uid);
 		return u;
 	}
 
 	@Override
-	public List<LoanDetails> fetchByLoanStatus(String status) {
+	public List<LoanDetail> fetchByLoanStatus(String status) {
 		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
 	}
 
 	@Transactional(value = TxType.REQUIRED)
 	public void changeStatus(int lid, String status) {
-		LoanDetails l1 = em.find(LoanDetails.class,lid);
+		LoanDetail l1 = em.find(LoanDetail.class,lid);
 		l1.setLoanStatus(status);
 		em.merge(l1);
 	}
 
 	@Transactional(value = TxType.REQUIRED)
-	public void saveUserDetails(UserDetails user) {
+	public void saveUserDetails(UserDetail user) {
 		em.persist(user);
 	}
 
 	@Transactional(value = TxType.REQUIRED)
-	public void saveLoanDetails(LoanDetails loan) {
+	public void saveLoanDetails(LoanDetail loan) {
 		int result = (int) em.createNamedQuery("max_id").getSingleResult();
-		UserDetails u = em.find(UserDetails.class, result);
+		UserDetail u = em.find(UserDetail.class, result);
 		u.setLoan(loan);
-		loan.setL(u);
+		loan.setUser(u);
 		em.merge(u);
 		}
 
 	@Transactional(value = TxType.REQUIRED)
-	public void saveVehicleDetails(VehicleDetails vehicle) {
+	public void saveVehicleDetails(VehicleDetail vehicle) {
 		int result = (int) em.createNamedQuery("max_id1").getSingleResult();
-		UserDetails u = em.find(UserDetails.class, result);
+		UserDetail u = em.find(UserDetail.class, result);
 		u.setVeh(vehicle);
-		vehicle.setV(u);
+		vehicle.setUser(u);
 		em.merge(u);
 	}
 
 	@Transactional(value = TxType.REQUIRED)
-	public void saveEmploymentDetails(EmploymentDetails employment) {
+	public void saveEmploymentDetails(EmploymentDetail employment) {
 		int result = (int) em.createNamedQuery("max_id2").getSingleResult();
-		UserDetails u = em.find(UserDetails.class, result);
+		UserDetail u = em.find(UserDetail.class, result);
 		u.setEmp(employment);
-		employment.setE(u);
+		employment.setUser(u);
 		em.merge(u);
 		}
 }

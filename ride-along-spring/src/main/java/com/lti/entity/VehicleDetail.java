@@ -12,14 +12,14 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vehicle_det")
+@Table(name = "veh_det")
 @SequenceGenerator(name = "vseq" ,sequenceName = "veh_seq",initialValue =  101,allocationSize = 1)
-@NamedQuery(name = "max_id1", query = "SELECT MAX(user_id) FROM UserDetails")
-public class VehicleDetails {
+@NamedQuery(name = "max_id1", query = "SELECT MAX(user_id) FROM UserDetail")
+public class VehicleDetail {
 	
 	@Id
 	@GeneratedValue(generator = "vseq", strategy = GenerationType.SEQUENCE)
-	private int vid;
+	private int vId;
 	
 	@Column(length = 15)
 	private String carMake;
@@ -30,7 +30,15 @@ public class VehicleDetails {
 	
 	@OneToOne
 	@JoinColumn(name = "user_id")
-	private UserDetails v;
+	private UserDetail user;
+
+	public int getvId() {
+		return vId;
+	}
+
+	public void setvId(int vId) {
+		this.vId = vId;
+	}
 
 	public String getCarMake() {
 		return carMake;
@@ -56,18 +64,11 @@ public class VehicleDetails {
 		this.exPrice = exPrice;
 	}
 
-	public UserDetails getV() {
-		return v;
+	public UserDetail getUser() {
+		return user;
 	}
 
-	public void setV(UserDetails v) {
-		this.v = v;
+	public void setUser(UserDetail user) {
+		this.user = user;
 	}
-	
-	
-	
-	
-	
-	
-
 }

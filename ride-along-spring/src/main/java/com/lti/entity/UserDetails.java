@@ -14,12 +14,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users_det")
-@SequenceGenerator(name = "useq" ,sequenceName = "users_seq",initialValue = 101)
+@SequenceGenerator(name = "useq" ,sequenceName = "users_seq",initialValue = 101,allocationSize = 1)
 public class UserDetails {
 	
 	@Id
 	@GeneratedValue(generator = "useq",strategy = GenerationType.SEQUENCE)
-	private int uid;
+	private int user_id;
 	
 	@Column(length = 20)
 	private String name;
@@ -77,12 +77,13 @@ public class UserDetails {
 		this.veh = veh;
 	}
 
-	public int getUid() {
-		return uid;
+	
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUid(int uid) {
-		this.uid = uid;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getName() {

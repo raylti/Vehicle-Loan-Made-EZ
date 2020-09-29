@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "loan_det")
-@SequenceGenerator(name = "loseq" ,sequenceName = "loan_seq",initialValue = 101)
+@SequenceGenerator(name = "loseq" ,sequenceName = "loan_seq",initialValue = 101,allocationSize = 1)
 
 public class LoanDetails {
 	
@@ -25,7 +25,7 @@ public class LoanDetails {
 	private int tenure;
 	
 	@OneToOne
-	@JoinColumn(name = "uid")
+	@JoinColumn(name = "user_id")
 	private UserDetails l;
 
 	public double getLoanAmount() {

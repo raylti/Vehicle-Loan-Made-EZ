@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "vehicle_det")
-@SequenceGenerator(name = "vseq" ,sequenceName = "veh_seq",initialValue =  101)
+@SequenceGenerator(name = "vseq" ,sequenceName = "veh_seq",initialValue =  101,allocationSize = 1)
 public class VehicleDetails {
 	
 	@Id
@@ -27,7 +27,7 @@ public class VehicleDetails {
 	private double exPrice;
 	
 	@OneToOne
-	@JoinColumn(name = "uid")
+	@JoinColumn(name = "user_id")
 	private UserDetails v;
 
 	public String getCarMake() {

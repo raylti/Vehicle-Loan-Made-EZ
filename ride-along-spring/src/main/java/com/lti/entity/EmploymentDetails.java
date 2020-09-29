@@ -12,20 +12,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "emp_det")
-@SequenceGenerator(name = "eseq", sequenceName = "emp_seq", initialValue = 101,allocationSize = 1)
+@SequenceGenerator(name = "eseq" ,sequenceName = "emp_seq",initialValue = 101,allocationSize = 1)
 public class EmploymentDetails {
-	
+
 	@Id
 	@GeneratedValue(generator = "eseq", strategy = GenerationType.SEQUENCE)
 	private int eid;
-
+	
 	@Column(length = 20)
 	private String employmentType;
 	private double annualSal;
 	private double existingEmi;
-
+	
 	@OneToOne
-	@JoinColumn(name = "uid")
+	@JoinColumn(name = "user_id")
 	private UserDetails e;
 
 	public int getEid() {
@@ -67,5 +67,4 @@ public class EmploymentDetails {
 	public void setE(UserDetails e) {
 		this.e = e;
 	}
-
 }

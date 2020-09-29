@@ -37,16 +37,16 @@ public class TestUser {
 		VehicleDetails v1 = new VehicleDetails();
 		v1.setCarMake("Honda");
 		v1.setCarModel("Honda");
-		v1.setExPrice(20000);
+		v1.setExPrice(20000.0);
 		
 		LoanDetails l1 = new LoanDetails();
-		l1.setLoanAmount(5000);
+		l1.setLoanAmount(5000.0);
 		l1.setInterestRate(8.5);
 		l1.setTenure(5);
 		
 		EmploymentDetails e1 =  new EmploymentDetails();
-		e1.setExistingEmi(5000);
-		e1.setAnnualSal(50000);
+		e1.setExistingEmi(5000.0);
+		e1.setAnnualSal(50000.0);
 		e1.setEmploymentType("Salaried");
 		
 		v1.setV(u1);
@@ -60,7 +60,15 @@ public class TestUser {
 		repo.saveUser(u1);
 	}
 	
-	
+	@Test
+	public void fetchUser() {
+		UserDetails u = repo.fetchUser(102);
+		EmploymentDetails e1 = u.getEmp();
+		VehicleDetails v1 = u.getVeh();
+		LoanDetails l1 = u.getLoan();
+		
+		System.out.println(u.getName() + "\t" + e1.getEmploymentType() + "\t" + v1.getCarModel() + "\t" + l1.getLoanAmount());
+	}
 	
 	
 

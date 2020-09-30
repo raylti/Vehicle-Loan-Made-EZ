@@ -38,9 +38,7 @@ public class UserRepoImpl implements UserRepo {
 		return u;
 	}
 
-	
 	@SuppressWarnings("unchecked")
-	
 	public List<Loan> fetchByLoanStatus(String status) {
 		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
 	}

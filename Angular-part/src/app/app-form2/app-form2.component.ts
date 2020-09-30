@@ -11,15 +11,15 @@ import { Employment } from '../loan.model';
 export class AppForm2Component implements OnInit {
   employ = new Employment;
 
-  constructor(private router : Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  salary:number =1;
 
+  salary: number = 1;
   isCollapsed = false;
 
-  setSalary(value){
+  setSalary(value) {
     this.salary = value;
     console.log(this.salary);
   }
@@ -29,7 +29,7 @@ export class AppForm2Component implements OnInit {
   }
 
 }
-  
-    
-    
+
+
+
 

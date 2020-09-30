@@ -1,5 +1,6 @@
 <div class="container" style="border: black 1px; background-color: white;">
-  <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image5.jpg'); background-repeat: no-repeat; background-size: cover">
+  <div class="jumbotron"
+    style=" margin-top: 10px; background-image: url('../assets/image5.jpg'); background-repeat: no-repeat; background-size: cover">
     <h1>Employment Details!</h1>
     <p>Please Fill Your Employment Details</p>
   </div>
@@ -13,10 +14,10 @@
               <label class="col-md-4 control-label">Type of Employment</label>
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
-                  <select name="typeOfEmployment" class="form-control" id="sel1">
-                    <option value="0">Salaried</option>
-                    <option value="1">Self Employed</option>
-                    <option value="2">Self Employed Professional</option>
+                  <select name="typeOfEmployment" class="form-control" [(ngModel)]="employ.employmentType" required>
+                    <option selected>Salaried</option>
+                    <option>Self Employed</option>
+                    <option>Self Employed Professional</option>
                   </select>
                 </div>
               </div>
@@ -49,9 +50,9 @@
 
             <div class="col-md-8 inputGroupContainer">
               <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
-                  [disabled]="!addForm.valid">Submit</button>
-          </div>
-            
+                [disabled]="!addForm.valid">Next Page</button>
+            </div>
+
           </form>
         </td>
       </tr>

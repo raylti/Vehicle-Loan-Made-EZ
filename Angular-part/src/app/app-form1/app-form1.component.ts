@@ -9,8 +9,8 @@ import { User } from '../loan.model';
 })
 export class AppForm1Component implements OnInit {
   user = new User;
-  
-  constructor(private router : Router) { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 <div class="container" style="border: black 1px; background-color: white;">
-    <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image1.jpg'); background-repeat: no-repeat; background-size:cover">
+    <div class="jumbotron"
+        style=" margin-top: 10px; background-image: url('../assets/image1.jpg'); background-repeat: no-repeat; background-size:cover">
         <h1>Apply Loan!</h1>
         <p> Please Fill Your Details here </p>
     </div>
@@ -12,59 +13,78 @@
                         <div class="form-group">
                             <p style="text-decoration: underline; font-size: 25px; margin-top: 20px;"> Vehicle
                                 Details </p>
-                            <label for="type" class="col-sm-3 control-label"> Vehicle Type </label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">Car</option>
-                                    <option value="1">Bike</option>
-                                </select>
+                            <label class="col-md-4 control-label"> Vehicle Type <i class="fa fa-car"
+                                    style="font-size:18px;color:green"></i></label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                    <select name="vehicleType" class="form-control" [(ngModel)]="eligible.vehicleType"
+                                        required>
+                                        <option>Car</option>
+                                        <option>Bike</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="make" class="col-sm-3 control-label">Vehicle Make</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">Hero MotoCorp Ltd</option>
-                                    <option value="1">Maruti Suzuki</option>
-                                    <option value="2">Tata Motors</option>
-                                    <option value="3">Yamaha</option>
-                                </select>
+                            <label class="col-md-4 control-label">Vehicle Make <i class="fa fa-car"
+                                    style="font-size:18px;color:green"></i></label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                    <select name="carMake" class="form-control" id="sel1"
+                                        [(ngModel)]="eligible.vehicleMake" required>
+                                        <option>Hero MotoCorp Ltd</option>
+                                        <option>Maruti Suzuki</option>
+                                        <option>Tata Motors</option>
+                                        <option>Yamaha</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="model" class="col-sm-3 control-label">Vehicle Model </label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">Hero Splendor Plus</option>
-                                    <option value="1">Hero HF Deluxe </option>
-                                    <option value="2">Maruti Swift</option>
-                                    <option value="3">Maruti Baleno</option>
-                                    <option value="4">Tata Nexon</option>
-                                    <option value="5">Tata Altroz</option>
-                                    <option value="6">Yamaha MT 15</option>
-                                    <option value="7">Yamaha YZF R15 V3</option>
-                                </select>
+                            <label class="col-md-4 control-label">Vehicle Model <i class="fa fa-car"
+                                    style="font-size:18px;color:green"></i></label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                    <select name="carModel" class="form-control" id="sel2"
+                                        [(ngModel)]="eligible.vehicleModel" required>
+                                        <option>Hero Splendor Plus</option>
+                                        <option>Hero HF Deluxe </option>
+                                        <option>Maruti Swift</option>
+                                        <option>Maruti Baleno</option>
+                                        <option>Tata Nexon</option>
+                                        <option>Tata Altroz</option>
+                                        <option>Yamaha MT 15</option>
+                                        <option>Yamaha YZF R15 V3</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="exPrice" class="col-sm-3 control-label">Ex Showroom Price (₹)</label>
-                            <div class="col-sm-9">
-                                <input name="exPrice" [(ngModel)]=eligible.exPrice type="number" min="10000"
-                                    id="exPrice" placeholder="Ex Showroom Price" class="form-control" required
-                                    pattern="[1-9][0-9]{4,}" #ePrice='ngModel'>
+                            <label class="col-md-4 control-label">Ex-Showroom Price (₹)</label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                    <input id="price" name="price" placeholder="Price in Rupees"
+                                        [(ngModel)]="eligible.exShowroomPrice" class="form-control" type="number"
+                                        min="10000" required pattern="[1-9][0-9]{4,}" #ePrice='ngModel' />
+                                </div>
                                 <span *ngIf="ePrice.touched && ePrice.invalid" class="alert-danger">
                                     Price is invalid!
                                     Enter Price > ₹ 10,000
                                 </span>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="onroadPrice" class="col-sm-3 control-label">On Road Price (₹)</label>
-                            <div class="col-sm-9">
-                                <input name="onroadPrice" [(ngModel)]=eligible.onRoadPrice type="number" min="10000"
-                                    id="onroadPrice" placeholder="On Road Price" class="form-control" required
-                                    pattern="[1-9][0-9]{4,}" #oPrice='ngModel'>
+                            <label class="col-md-4 control-label">On Road Price (₹)</label>
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="onroadPrice" [(ngModel)]="eligible.onRoadPrice" type="number" min="10000"
+                                        id="onroadPrice" placeholder="On Road Price" class="form-control" required
+                                        pattern="[1-9][0-9]{4,}" #oPrice='ngModel' />
+                                </div>
                                 <span *ngIf="oPrice.touched && oPrice.invalid" class="alert-danger">
                                     Price is invalid!
                                     Enter Price > ₹ 10,000
@@ -74,10 +94,11 @@
 
                         <!-- Applicant Details-->
                         <div class="form-group">
-                            <p style="text-decoration: underline; font-size: 25px; margin-top: 50px;">Applicant Details</p>
+                            <p style="text-decoration: underline; font-size: 25px; margin-top: 50px;">Applicant Details
+                            </p>
                             <label for="Name" class="col-sm-3 control-label">Name</label>
-                            <div class="col-sm-9">
-                                <input name="Name" [(ngModel)]=eligible.name type="text" id="Name" placeholder="Name"
+                            <div class="col-md-8 inputGroupContainer">
+                                <input name="Name" [(ngModel)]="eligible.name" type="text" id="Name" placeholder="Name"
                                     class="form-control" required pattern="[A-Z][A-Z,a-z]{2,}" #name='ngModel'>
                                 <span *ngIf="name.touched && name.invalid" class="alert-danger">
                                     Name is invalid!
@@ -88,9 +109,9 @@
                         </div>
                         <div class="form-group">
                             <label for="age" class="col-sm-3 control-label">Age </label>
-                            <div class="col-sm-9">
+                            <div class="col-md-8 inputGroupContainer">
                                 <input type="number" id="age" placeholder="Age" class="form-control" name="age"
-                                    [(ngModel)]=eligible.age required pattern="[2-5][0-9]{1}" min="20" max="59"
+                                    [(ngModel)]="eligible.age" required pattern="[2-5][0-9]{1}" min="20" max="59"
                                     #age='ngModel'>
                                 <span *ngIf="age.touched && age.invalid" class="alert-danger">
                                     Age should be between 20 years to 59 years.
@@ -99,65 +120,70 @@
                         </div>
                         <div class="form-group">
                             <label for="gender" class="col-sm-3 control-label">Gender </label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">Male</option>
-                                    <option value="1">Female</option>
-                                    <option value="2">Other</option>
+                            <div class="col-md-8 inputGroupContainer">
+                                <select name="gender" class="form-control" [(ngModel)]="eligible.gender" required>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="employment" class="col-sm-3 control-label">Type Of Employment </label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">Salaried</option>
-                                    <option value="1">Self Employed</option>
-                                    <option value="2">Self Employed Professional</option>
+                            <div class="col-md-8 inputGroupContainer">
+                                <select name="employment" class="form-control" [(ngModel)]="eligible.employmentType"
+                                    required>
+                                    <option>Salaried</option>
+                                    <option>Self Employed</option>
+                                    <option>Self Employed Professional</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="salary" class="col-sm-3 control-label">Yearly Salary (₹)</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">3 lakh to 5 lakh</option>
-                                    <option value="1">5 lakh to 10 lakh</option>
-                                    <option value="2">10 lakh to 15 lakh</option>
-                                    <option value="3">15 lakh to 25 lakh</option>
-                                    <option value="4">Above 25 lakh</option>
+                            <div class="col-md-8 inputGroupContainer">
+                                <select name="salary" class="form-control" [(ngModel)]="eligible.annualIncome" required>
+                                    <option>3 lakh to 5 lakh</option>
+                                    <option>5 lakh to 10 lakh</option>
+                                    <option>10 lakh to 15 lakh</option>
+                                    <option>15 lakh to 25 lakh</option>
+                                    <option>Above 25 lakh</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="emi" class="col-sm-3 control-label">Existing EMI </label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option value="0">No</option>
-                                    <option value="1">Yes</option>
-                                </select>
+                            <div class="col-md-8 inputGroupContainer">
+                                <input id="emi" name="emi" placeholder="EMI" [(ngModel)]="eligible.emi"
+                                    class="form-control" value="" type="number" required pattern="[0-9]{1,}"
+                                    #emi='ngModel' />
+                                <span *ngIf="emi.touched && emi.invalid" class="alert-danger">
+                                    Invalid EMI value!
+                                </span>
                             </div>
                         </div>
 
                         <!-- Contact Details-->
                         <div class="form-group">
-                            <p style="text-decoration: underline; font-size: 25px; margin-top: 50px;">Contact Details</p>
+                            <p style="text-decoration: underline; font-size: 25px; margin-top: 50px;">Contact Details
+                            </p>
                             <label for="mobileNumber" class="col-sm-3 control-label">Mobile number </label>
-                            <div class="col-sm-9">
+                            <div class="col-md-8 inputGroupContainer">
                                 <input name="mobileNumber" [(ngModel)]=eligible.mobileNo type="text" id="mobileNumber"
                                     placeholder="Mobile number" required pattern="[6-9][0-9]{9}" class="form-control"
                                     #mobile='ngModel'>
                                 <span *ngIf="mobile.touched && mobile.invalid" class="alert-danger">
                                     Invalid Mobile number!
+                                    Enter correct 10 digit mobile number.
                                 </span>
                                 <span class="help-block">Your mobile number won't be disclosed anywhere </span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-sm-3 control-label">Email </label>
-                            <div class="col-sm-9">
+                            <div class="col-md-8 inputGroupContainer">
                                 <input type="email" id="email" placeholder="Email" class="form-control" name="email"
-                                    [(ngModel)]=eligible.email required #email='ngModel'>
+                                    [(ngModel)]="eligible.email" required #email='ngModel'>
                                 <span *ngIf="email.touched && email.invalid" class="alert-danger">
                                     Invalid Email Id!
                                 </span>
@@ -165,7 +191,7 @@
                         </div>
 
                         <!-- Check Eligibility-->
-                        <div class="col-sm-9">
+                        <div class="col-md-8 inputGroupContainer">
                             <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
                                 [disabled]="!addForm.valid">Check Eligibility</button>
                         </div>

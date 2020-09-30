@@ -4,7 +4,8 @@
 </head>
 
 <div class="container" style="border: black 1px; background-color: white;">
-  <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image6.jpg'); background-repeat: no-repeat; background-size: cover">
+  <div class="jumbotron"
+    style=" margin-top: 10px; background-image: url('../assets/image6.jpg'); background-repeat: no-repeat; background-size: cover">
     <h1>Vehicle Details!</h1>
     <p>Please Fill Your Vehicle Details below</p>
   </div>
@@ -15,45 +16,45 @@
           <form class="well form-horizontal" (ngSubmit)="save3()" #addForm="ngForm">
 
             <div class="form-group">
-              <label class="col-md-4 control-label">Car Make <i class="fa fa-car"
+              <label class="col-md-4 control-label">Vehicle Make <i class="fa fa-car"
                   style="font-size:18px;color:green"></i></label>
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
-                  <select name="carMake" class="form-control" id="sel1">
-                    <option value="0">Hero MotoCorp Ltd</option>
-                    <option value="1">Maruti Suzuki</option>
-                    <option value="2">Tata Motors</option>
-                    <option value="3">Yamaha</option>
+                  <select name="carMake" class="form-control" id="sel1" [(ngModel)]="vehicle.vehicleMake" required>
+                    <option>Hero MotoCorp Ltd</option>
+                    <option>Maruti Suzuki</option>
+                    <option>Tata Motors</option>
+                    <option>Yamaha</option>
                   </select>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-md-4 control-label">Car Model <i class="fa fa-car"
+              <label class="col-md-4 control-label">Vehicle Model <i class="fa fa-car"
                   style="font-size:18px;color:green"></i></label>
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
-                  <select name="carModel" class="form-control" id="sel2">
-                    <option value="0">Hero Splendor Plus</option>
-                    <option value="1">Hero HF Deluxe </option>
-                    <option value="2">Maruti Swift</option>
-                    <option value="3">Maruti Baleno</option>
-                    <option value="4">Tata Nexon</option>
-                    <option value="5">Tata Altroz</option>
-                    <option value="6">Yamaha MT 15</option>
-                    <option value="7">Yamaha YZF R15 V3</option>
+                  <select name="carModel" class="form-control" id="sel2" [(ngModel)]="vehicle.vehicleModel" required>
+                    <option>Hero Splendor Plus</option>
+                    <option>Hero HF Deluxe </option>
+                    <option>Maruti Swift</option>
+                    <option>Maruti Baleno</option>
+                    <option>Tata Nexon</option>
+                    <option>Tata Altroz</option>
+                    <option>Yamaha MT 15</option>
+                    <option>Yamaha YZF R15 V3</option>
                   </select>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-md-4 control-label">Exshowroom Price (₹)</label>
+              <label class="col-md-4 control-label">Ex-Showroom Price (₹)</label>
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <span class="input-group-addon"></span><input id="price" name="price" placeholder="Price in Rupees"
-                    [(ngModel)]=vehicle.exPrice class="form-control" type="number" min="10000" required
+                    [(ngModel)]="vehicle.exShowroomPrice" class="form-control" type="number" min="10000" required
                     pattern="[1-9][0-9]{4,}" #ePrice='ngModel' />
                 </div>
                 <span *ngIf="ePrice.touched && ePrice.invalid" class="alert-danger">
@@ -65,8 +66,8 @@
 
             <div class="col-md-8 inputGroupContainer">
               <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
-                  [disabled]="!addForm.valid">Submit</button>
-          </div>
+                [disabled]="!addForm.valid">Next Page</button>
+            </div>
 
           </form>
         </td>

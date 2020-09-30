@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="container" style="border: black 1px; background-color: white;">
-  <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image8.jpg'); background-repeat: no-repeat; background-size: cover">
-    <h1>Identity  Details</h1>
+  <div class="jumbotron"
+    style=" margin-top: 10px; background-image: url('../assets/image8.jpg'); background-repeat: no-repeat; background-size: cover">
+    <h1>Identity Details</h1>
     <p>Please Fill Your Identity Details below</p>
   </div>
   <table class="table table-default">
@@ -10,66 +11,87 @@
       <tr>
         <td colspan="1">
           <form class="well form-horizontal" (ngSubmit)="onUpload()" #addForm="ngForm">
-            
-              <div class="form-group">
-                <label class="col-md-4 control-label">Aadhar Card  <i class="fa fa-address-card" style="font-size:18px;color:green"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="aadhaar" [(ngModel)]="identity.aadhaar">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label class="col-md-4 control-label">Pan Card  <i class="fa fa-address-card" style="font-size:18px;color:green"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="pan" [(ngModel)]="identity.pan">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label">Photo <i class="fa fa-user" style="font-size:18px;color:green"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="photo" [(ngModel)]="identity.photo">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label">Monthly salary slip <i class="fa fa-list" style="font-size:18px;color:green"></i></label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile" name="salarySlip" [(ngModel)]="identity.salarySlip">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
+            <div class="form-group">
+              <label class="col-md-4 control-label">Aadhar Card <i class="fa fa-address-card"
+                  style="font-size:18px;color:green"></i></label>
               <div class="col-md-8 inputGroupContainer">
-                <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px;"
-                  [disabled]="!addForm.valid">Submit For Approval!</button>
+                <div class="input-group">
+                  <input id="aadhaar" name="aadhaar" placeholder="Aadhaar Number" [(ngModel)]="identity.aadhaarNo"
+                    class="form-control" type="number" required pattern="[0-9][0-9]{11}" #aadhaar='ngModel' /> </div>
+                <span *ngIf="aadhaar.touched && aadhaar.invalid" class="alert-danger">
+                  Enter 12 digit Aadhaar number!
+                </span>
+
+                <div class="input-group" style="margin-top: 20px;">
+                  <div class="custom-file">
+                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
+                      name="aadhaar">
+                    <label class="custom-file-label" for="customFile">Upload Aadhaar here</label>
+                  </div>
+                </div>
               </div>
-        
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Pan Card <i class="fa fa-address-card"
+                  style="font-size:18px;color:green"></i></label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <input id="pan" name="pan" placeholder="Pan Number" [(ngModel)]="identity.panNo" class="form-control"
+                    type="text" required pattern="[A-Z][A-Z]{4}[0-9]{4}[A-Z]{1}" #pan='ngModel' /> </div>
+                <span *ngIf="pan.touched && pan.invalid" class="alert-danger">
+                  Invalid Pan number!
+                  Enter pan number in the correct 10 digit format.
+                  (Ex:- EQDFP1254T)
+                </span>
+
+                <div class="input-group" style="margin-top: 20px;">
+                  <div class="custom-file">
+                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
+                      name="pan">
+                    <label class="custom-file-label" for="customFile">Upload Pan here</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Photo <i class="fa fa-user"
+                  style="font-size:18px;color:green"></i></label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
+                      name="photo">
+                    <label class="custom-file-label" for="customFile">Choose Photo</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Monthly salary slip <i class="fa fa-list"
+                  style="font-size:18px;color:green"></i></label>
+              <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
+                      name="salarySlip">
+                    <label class="custom-file-label" for="customFile">Choose Salary Slip</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8 inputGroupContainer">
+              <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px;"
+                [disabled]="!addForm.valid">Submit For Approval!</button>
+            </div>
+
           </form>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
-
-

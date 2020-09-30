@@ -1,5 +1,6 @@
 <div class="container" style="border: black 1px; background-color: white;">
-   <div class="jumbotron" style=" margin-top: 10px; background-image: url('../assets/image4.jpg'); background-repeat: no-repeat; background-size: cover">
+   <div class="jumbotron"
+      style=" margin-top: 10px; background-image: url('../assets/image4.jpg'); background-repeat: no-repeat; background-size: cover">
       <h1>Personal Details!</h1>
       <p> Please Fill Your Details here </p>
    </div>
@@ -12,23 +13,23 @@
                   <div class="form-group">
                      <label for="firstName" class="col-md-4 control-label">First Name</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <input id="firstName" name="firstName" [(ngModel)]=user.name
-                              placeholder="Enter your First Name" class="form-control" type="text" required
-                              pattern="[A-Z][a-z,A-Z]{2,}" #name='ngModel'>
+                        <input id="firstName" name="firstName" [(ngModel)]="user.name"
+                           placeholder="Enter your First Name" class="form-control" type="text" required
+                           pattern="[A-Z][a-z,A-Z]{2,}" #name='ngModel'>
                         <span *ngIf="name.touched && name.invalid" class="alert-danger">
-                           Name is invalid!
+                           Invalid name!
                            First letter should be capital.
                            Length should be minimum of 3 characters.
                         </span>
                      </div>
                   </div>
 
-                  
+
                   <div class="form-group">
                      <label for="age" class="col-md-4 control-label">Age </label>
                      <div class="col-md-8 inputGroupContainer">
                         <input type="number" id="age" placeholder="Age" class="form-control" name="age"
-                           [(ngModel)]=user.age required pattern="[2-5][0-9]{1}" min="20" max="59" #age='ngModel'>
+                           [(ngModel)]="user.age" required pattern="[2-5][0-9]{1}" min="20" max="59" #age='ngModel'>
                         <span *ngIf="age.touched && age.invalid" class="alert-danger">
                            Age should be between 20 years to 59 years.
                         </span>
@@ -38,10 +39,10 @@
                   <div class="form-group">
                      <label class="col-md-4 control-label">Gender </label>
                      <div class="col-md-8 inputGroupContainer">
-                        <select class="form-control">
-                           <option value="0">Male</option>
-                           <option value="1">Female</option>
-                           <option value="2">Other</option>
+                        <select name="gender" class="form-control" [(ngModel)]="user.gender">
+                           <option selected>Male</option>
+                           <option>Female</option>
+                           <option>Other</option>
                         </select>
                      </div>
                   </div>
@@ -54,6 +55,7 @@
                               required pattern="[6-9][0-9]{9}" #mobile='ngModel'></div>
                         <span *ngIf="mobile.touched && mobile.invalid" class="alert-danger">
                            Invalid Mobile number!
+                           Enter correct 10 digit mobile number.
                         </span>
                         <span class="help-block">Your mobile number won't be disclosed anywhere </span>
                      </div>
@@ -64,21 +66,23 @@
                      <label class="col-md-4 control-label">Email</label>
                      <div class="col-md-8 inputGroupContainer">
                         <div class="input-group"><input id="email" name="email" [(ngModel)]="user.email"
-                              placeholder="Email" class="form-control" type="email" required="true" #email='ngModel'></div>
+                              placeholder="Email" class="form-control" type="email" required="true" #email='ngModel'>
+                        </div>
                         <span *ngIf="email.touched && email.invalid" class="alert-danger">
                            Invalid Email Id!
-                       </span>
+                        </span>
                      </div>
                   </div>
 
                   <div class="form-group">
                      <label class="col-md-4 control-label">Password</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <div class="input-group"><input id="Password" name="Password" [(ngModel)]="user.password" placeholder="Password"
-                              class="form-control" type="password" required pattern="[a-z,A-Z,0-9][a-z,A-Z,0-9]{5,}" #pwd='ngModel'></div>
+                        <div class="input-group"><input id="Password" name="Password" [(ngModel)]="user.password"
+                              placeholder="Password" class="form-control" type="password" required
+                              pattern="[a-z,A-Z,0-9][a-z,A-Z,0-9]{5,}" #pwd='ngModel'></div>
                         <span *ngIf="pwd.touched && pwd.invalid" class="alert-danger">
                            Invalid Password! Password should be minimum of 6 characters.
-                       </span>
+                        </span>
                      </div>
                   </div>
 
@@ -97,14 +101,14 @@
                   <div class="form-group">
                      <label class="col-md-4 control-label">State/Province/Region</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <select class="form-control">
-                           <option value="0">Assam</option>
-                           <option value="1">Bihar</option>
-                           <option value="2">Karnataka</option>
-                           <option value="3">Maharashtra</option>
-                           <option value="4">Telangana</option>
-                           <option value="5">West Bengal</option>
-                           <option value="6">Other</option>
+                        <select name="state" class="form-control" [(ngModel)]="user.state">
+                           <option selected>Assam</option>
+                           <option>Bihar</option>
+                           <option>Karnataka</option>
+                           <option>Maharashtra</option>
+                           <option>Telangana</option>
+                           <option>West Bengal</option>
+                           <option>Other</option>
                         </select>
                      </div>
                   </div>
@@ -112,27 +116,28 @@
                   <div class="form-group">
                      <label class="col-md-4 control-label">City</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <select class="form-control">
-                           <option value="0">Bangalore</option>
-                           <option value="1" selected>Dispur</option>
-                           <option value="2">Gaya</option>
-                           <option value="3">Hyderabad</option>
-                           <option value="4">Kolkata</option>
-                           <option value="5">New Delhi</option>
-                           <option value="6">Mumbai</option>
-                           <option value="7">Mysore</option>
-                           <option value="8">Patna</option>
-                           <option value="9">Thane</option>
-                           <option value="10">Other</option>
+                        <select name="city" class="form-control" [(ngModel)]="user.city">
+                           <option>Bangalore</option>
+                           <option selected>Dispur</option>
+                           <option>Gaya</option>
+                           <option>Hyderabad</option>
+                           <option>Kolkata</option>
+                           <option>New Delhi</option>
+                           <option>Mumbai</option>
+                           <option>Mysore</option>
+                           <option>Patna</option>
+                           <option>Thane</option>
+                           <option>Other</option>
                         </select>
                      </div>
                   </div>
-                
+
                   <div class="form-group">
                      <label class=c>Postal Code/ZIP</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <div class="input-group"><input id="postcode" name="postcode" [(ngModel)]="user.pincode" placeholder="Postal Code/ZIP"
-                              class="form-control" type="text" required pattern="[1-9][0-9]{5}" #pin='ngModel'></div>
+                        <div class="input-group"><input id="postcode" name="postcode" [(ngModel)]="user.pincode"
+                              placeholder="Postal Code/ZIP" class="form-control" type="text" required
+                              pattern="[1-9][0-9]{5}" #pin='ngModel'></div>
                         <span *ngIf="pin.touched && pin.invalid" class="alert-danger">
                            Invalid Pincode! Length should be 6 digits.
                         </span>
@@ -141,8 +146,8 @@
 
                   <div class="col-md-8 inputGroupContainer">
                      <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 30px;"
-                         [disabled]="!addForm.valid">Submit</button>
-                 </div>
+                        [disabled]="!addForm.valid">Next Page</button>
+                  </div>
 
                </form>
             </td>

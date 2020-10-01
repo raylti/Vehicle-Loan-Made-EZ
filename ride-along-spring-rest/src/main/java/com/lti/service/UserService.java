@@ -1,3 +1,10 @@
+
+/**
+ *
+ * @author: Abhinav
+ * @Version:1.0
+ * 
+ */
 package com.lti.service;
 
 import java.util.List;
@@ -20,9 +27,9 @@ public interface UserService {
 	
 	void persistsEmploymentDetails(Employment employment);
 	
-	User fetchUser(int uid);
+	String fetchUser(int uid);
 	
-	List<Loan> fetchByLoanStatus(String status);
+	List fetchByLoanStatus(String status);
 	
 	void changeStatus(int lid, String status);
 	

@@ -1,3 +1,9 @@
+/**
+ * Saves User's personal details.
+ * @author: Abhinav
+ * @Version:1.0
+ * 
+ */
 package com.lti.service;
 
 import java.util.List;
@@ -47,12 +53,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User fetchUser(int uid) {
+	public String fetchUser(int uid) {
 		return repo.fetchUser(uid);
 	}
 
 	@Override
-	public List<Loan> fetchByLoanStatus(String status) {
+	public List fetchByLoanStatus(String status) {
 		return repo.fetchByLoanStatus(status);
 	}
 

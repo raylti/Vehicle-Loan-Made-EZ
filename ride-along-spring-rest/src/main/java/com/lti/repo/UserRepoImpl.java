@@ -32,15 +32,20 @@ public class UserRepoImpl implements UserRepo {
 		em.persist(user);
 	}
 
-	public User fetchUser(int uid) {
+	public String fetchUser(int uid) {
 		User u = em.find(User.class, uid);
-		return u;
+		Loan l = new Loan();
+		Vehicle v = new Vehicle();
+		
+		l = u.getLoan();
+		
+		return u.getName()+ "\t"+ l.getLoanAmount()+"\t" + l.getTenure();
 	}
 
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Loan> fetchByLoanStatus(String status) {
+	public List fetchByLoanStatus(String status) {
 		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
 	}
 

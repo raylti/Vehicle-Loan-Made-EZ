@@ -28,9 +28,9 @@ public interface UserRepo {
 	
 	void saveIdentityDetails(Identity identity);
 	
-	User fetchUser(int uid);
+	String fetchUser(int uid);
 	
-	List<Loan> fetchByLoanStatus(String status);
+	List fetchByLoanStatus(String status);
 	
 	void changeStatus(int lid, String status);
 	

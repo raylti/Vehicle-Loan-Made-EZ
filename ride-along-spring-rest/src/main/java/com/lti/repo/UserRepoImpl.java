@@ -20,6 +20,7 @@ import com.lti.entity.Employment;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
+import com.lti.entity.Identity;
 
 @Repository
 public class UserRepoImpl implements UserRepo {
@@ -38,7 +39,9 @@ public class UserRepoImpl implements UserRepo {
 		return u;
 	}
 
+	
 	@SuppressWarnings("unchecked")
+	@Override
 	public List<Loan> fetchByLoanStatus(String status) {
 		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
 	}
@@ -79,6 +82,15 @@ public class UserRepoImpl implements UserRepo {
 		User u = em.find(User.class, result);
 		u.setEmp(employment);
 		employment.setUser(u);
+		em.merge(u);
+		}
+	
+	@Transactional(value = TxType.REQUIRED)
+	public void saveIdentityDetails(Identity identity) {
+		int result = (int) em.createNamedQuery("max_id3").getSingleResult();
+		User u = em.find(User.class, result);
+		u.setIdentity(identity);
+		identity.setUser(u);
 		em.merge(u);
 		}
 }

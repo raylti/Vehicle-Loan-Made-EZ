@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Employment;
+import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
@@ -58,6 +59,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void changeStatus(int lid, String status) {
 		repo.changeStatus(lid, status);
+	}
+
+	@Transactional(value = TxType.REQUIRED)
+	public void persistsIdentityDetails(Identity identity) {
+		repo.saveIdentityDetails(identity);
 	}
 
 }

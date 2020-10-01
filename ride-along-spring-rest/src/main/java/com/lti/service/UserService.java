@@ -3,6 +3,7 @@ package com.lti.service;
 import java.util.List;
 
 import com.lti.entity.Employment;
+import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
@@ -24,6 +25,8 @@ public interface UserService {
 	List<Loan> fetchByLoanStatus(String status);
 	
 	void changeStatus(int lid, String status);
+	
+	void persistsIdentityDetails(Identity identity);
 	
 	
 	

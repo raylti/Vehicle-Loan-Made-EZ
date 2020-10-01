@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.lti.entity.Employment;
+import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
@@ -25,7 +26,7 @@ public class UserRestController {
 	@Autowired
 	private UserService service;
 	
-//	http://localhost:8080/ride_along-spring-rest/rest/add_user_detail
+//	http://localhost:8080/ride-along-spring-rest/rest/add_user_detail
 	@PostMapping(value = "/add_user_detail" , consumes = "application/json")
 	public String addUserDetail(@RequestBody User user) {
 		service.persistsUserDetails(user);
@@ -42,6 +43,12 @@ public class UserRestController {
 	public String addEmploymentDetails(@RequestBody Employment emp) {
 		service.persistsEmploymentDetails(emp);
 		return "Employement Details added successfully";
+	}
+	
+	@PostMapping(value = "/add_identity_detail" , consumes = "application/json")
+	public String addIdentityDetails(@RequestBody Identity identity) {
+		service.persistsIdentityDetails(identity);;
+		return "Identity Details added successfully";
 	}
 	
 	@PostMapping(value = "/add_loan_detail" , consumes = "application/json")

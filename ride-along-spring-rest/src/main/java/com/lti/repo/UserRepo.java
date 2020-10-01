@@ -12,6 +12,7 @@ import com.lti.entity.Employment;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
+import com.lti.entity.Identity;
 
 public interface UserRepo {
 
@@ -24,6 +25,8 @@ public interface UserRepo {
 	void saveVehicleDetails(Vehicle vehicle);
 	
 	void saveEmploymentDetails(Employment employment);
+	
+	void saveIdentityDetails(Identity identity);
 	
 	User fetchUser(int uid);
 	

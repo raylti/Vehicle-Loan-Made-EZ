@@ -11,16 +11,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import javax.transaction.Transactional.TxType;
 
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Employment;
+import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
-import com.lti.entity.Identity;
 
 @Repository
 public class UserRepoImpl implements UserRepo {
@@ -29,7 +27,7 @@ public class UserRepoImpl implements UserRepo {
 	@PersistenceContext
 	private EntityManager em;
 	
-	@Transactional(value = TxType.REQUIRED)
+
 	public void saveUser(User user) {
 		em.persist(user);
 	}
@@ -46,19 +44,19 @@ public class UserRepoImpl implements UserRepo {
 		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
 	}
 
-	@Transactional(value = TxType.REQUIRED)
+	
 	public void changeStatus(int lid, String status) {
 		Loan l1 = em.find(Loan.class,lid);
 		l1.setLoanStatus(status);
 		em.merge(l1);
 	}
 
-	@Transactional(value = TxType.REQUIRED)
+
 	public void saveUserDetails(User user) {
 		em.persist(user);
 	}
 
-	@Transactional(value = TxType.REQUIRED)
+
 	public void saveLoanDetails(Loan loan) {
 		int result = (int) em.createNamedQuery("max_id").getSingleResult();
 		User u = em.find(User.class, result);
@@ -67,7 +65,7 @@ public class UserRepoImpl implements UserRepo {
 		em.merge(u);
 		}
 
-	@Transactional(value = TxType.REQUIRED)
+	
 	public void saveVehicleDetails(Vehicle vehicle) {
 		int result = (int) em.createNamedQuery("max_id1").getSingleResult();
 		User u = em.find(User.class, result);
@@ -76,7 +74,7 @@ public class UserRepoImpl implements UserRepo {
 		em.merge(u);
 	}
 
-	@Transactional(value = TxType.REQUIRED)
+
 	public void saveEmploymentDetails(Employment employment) {
 		int result = (int) em.createNamedQuery("max_id2").getSingleResult();
 		User u = em.find(User.class, result);
@@ -85,7 +83,7 @@ public class UserRepoImpl implements UserRepo {
 		em.merge(u);
 		}
 	
-	@Transactional(value = TxType.REQUIRED)
+	
 	public void saveIdentityDetails(Identity identity) {
 		int result = (int) em.createNamedQuery("max_id3").getSingleResult();
 		User u = em.find(User.class, result);

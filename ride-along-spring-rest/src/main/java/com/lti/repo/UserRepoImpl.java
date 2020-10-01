@@ -42,25 +42,20 @@ public class UserRepoImpl implements UserRepo {
 		return u.getName()+ "\t"+ l.getLoanAmount()+"\t" + l.getTenure();
 	}
 
-	
-	@SuppressWarnings("unchecked")
 	@Override
-	public List fetchByLoanStatus(String status) {
+	public List<Loan> fetchByLoanStatus(String status) {
 		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
 	}
 
-	
 	public void changeStatus(int lid, String status) {
 		Loan l1 = em.find(Loan.class,lid);
 		l1.setLoanStatus(status);
 		em.merge(l1);
 	}
 
-
 	public void saveUserDetails(User user) {
 		em.persist(user);
 	}
-
 
 	public void saveLoanDetails(Loan loan) {
 		int result = (int) em.createNamedQuery("max_id").getSingleResult();
@@ -79,7 +74,6 @@ public class UserRepoImpl implements UserRepo {
 		em.merge(u);
 	}
 
-
 	public void saveEmploymentDetails(Employment employment) {
 		int result = (int) em.createNamedQuery("max_id2").getSingleResult();
 		User u = em.find(User.class, result);
@@ -87,7 +81,6 @@ public class UserRepoImpl implements UserRepo {
 		employment.setUser(u);
 		em.merge(u);
 		}
-	
 	
 	public void saveIdentityDetails(Identity identity) {
 		int result = (int) em.createNamedQuery("max_id3").getSingleResult();

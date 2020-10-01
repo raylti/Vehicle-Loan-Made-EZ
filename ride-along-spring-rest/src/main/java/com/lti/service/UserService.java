@@ -29,7 +29,7 @@ public interface UserService {
 	
 	String fetchUser(int uid);
 	
-	List fetchByLoanStatus(String status);
+	List<Loan> fetchByLoanStatus(String status);
 	
 	void changeStatus(int lid, String status);
 	

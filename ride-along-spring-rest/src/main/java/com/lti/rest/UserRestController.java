@@ -59,14 +59,14 @@ public class UserRestController {
 		service.persistsLoanDetails(loan);
 		return "Loan Details added successfully";
 	}
-	
+//	http://localhost:8080/ride-along-spring-rest/rest/fetch/{id}
 	@GetMapping(value = "/fetch/{id}", produces = "application/json")
 	public String fetchUser(@PathVariable int id) {
 		return service.fetchUser(id);
 	}
 //	http://localhost:8080/ride-along-spring-rest/rest/fetch_by_loan_status/{status}
 	@GetMapping(value="/fetch_by_loan_status/{status}",produces="application/json")
-	public List fetchByLoanStatus(@PathVariable String status) {
+	public List<Loan> fetchByLoanStatus(@PathVariable String status) {
 		return service.fetchByLoanStatus(status);
 	}
 	

@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List fetchByLoanStatus(String status) {
+	public List<Loan> fetchByLoanStatus(String status) {
 		return repo.fetchByLoanStatus(status);
 	}
 

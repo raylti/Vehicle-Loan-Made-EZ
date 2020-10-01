@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "loan_det")
 @SequenceGenerator(name = "loseq" ,sequenceName = "loan_seq",initialValue = 101,allocationSize = 1)
-@NamedQuery(name = "loan_status", query = "FROM Loan WHERE loanStatus =:crl")
+@NamedQuery(name = "loan_status", query = "Select loanId, loanAmount,interestRate,tenure FROM Loan WHERE loanStatus =:crl")
 @NamedQuery(name = "max_id", query = "SELECT MAX(userId) FROM User")
 public class Loan {
 	

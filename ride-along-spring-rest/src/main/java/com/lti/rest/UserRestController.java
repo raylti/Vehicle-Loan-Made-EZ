@@ -8,11 +8,14 @@ package com.lti.rest;
 
 import java.util.List;
 
+import javax.persistence.QueryHint;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.lti.entity.Employment;
@@ -71,9 +74,11 @@ public class UserRestController {
 	}
 	
 //	http://localhost:8080/ride-along-spring-rest/rest/change_loan_status/101/lid/Approved/status
-	@PostMapping(value="/change_loan_status/{lid}/lid/{status}/status}",produces="application/json")
-	public void changeLoanStatus(@PathVariable("status") String status , @PathVariable("lid")int lid) {
-		service.changeStatus(lid, status);
+	@PutMapping(value="/change_loan_status/Rejected",consumes ="application/json")
+	public String changeLoanStatus(@RequestBody Loan loan) {
+		loan.setLoanStatus("Rejected");
+		service.persistsLoanDetails(loan);
+		return "updated successfully";
 	}
 	
 	

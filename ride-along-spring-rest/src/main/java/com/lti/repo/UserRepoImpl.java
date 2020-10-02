@@ -39,7 +39,7 @@ public class UserRepoImpl implements UserRepo {
 		
 		l = u.getLoan();
 		
-		return u.getName()+ "\t"+ l.getLoanAmount()+"\t" + l.getTenure();
+		return u.getName()+ "\t"+ l.getLoanAmount();
 	}
 
 	@Override

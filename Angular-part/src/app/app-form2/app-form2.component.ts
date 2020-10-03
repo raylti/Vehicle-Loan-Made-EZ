@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employment } from '../loan.model';
+import { VehicleLoanService } from '../services/vehicle-loan.service';
 
 
 @Component({
@@ -11,23 +12,15 @@ import { Employment } from '../loan.model';
 export class AppForm2Component implements OnInit {
   employ = new Employment;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private service : VehicleLoanService) { }
 
   ngOnInit() {
   }
 
-  salary: number = 1;
-  isCollapsed = false;
-
-  setSalary(value) {
-    this.salary = value;
-    console.log(this.salary);
-  }
-
-  save2() {
+  save() {
+    this.service.saveEmployment(this.employ);
     this.router.navigate(['appForm3']);
   }
-
 }
 
 

@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Identity } from '../loan.model';
+import { VehicleLoanService } from '../services/vehicle-loan.service';
 
 @Component({
   selector: 'app-app-form5',
@@ -9,7 +11,7 @@ import { Identity } from '../loan.model';
 export class AppForm5Component implements OnInit {
   identity = new Identity;
 
-  constructor() { }
+  constructor(private router : Router, private service : VehicleLoanService) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,8 @@ export class AppForm5Component implements OnInit {
   }
 
   onUpload() {
+    this.service.saveIdentity(this.identity);
+    this.router.navigate(['user']);
   }
 
 }

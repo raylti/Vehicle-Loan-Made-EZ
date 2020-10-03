@@ -27,7 +27,7 @@ public class Employment {
 	@GeneratedValue(generator = "empseq", strategy = GenerationType.SEQUENCE)
 	private int employmentId;
 	
-	@Column(length = 20)
+	@Column(length = 30)
 	private String employmentType;
 	private double annualIncome;
 	private double existingEmi;

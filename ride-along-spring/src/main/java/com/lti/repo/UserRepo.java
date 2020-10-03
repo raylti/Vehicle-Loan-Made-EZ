@@ -34,4 +34,6 @@ public interface UserRepo {
 	
 	void changeStatus(int lid, String status);
 	
+	User fetchLogin(String email, String password);
+	
 }

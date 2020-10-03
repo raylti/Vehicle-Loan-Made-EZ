@@ -12,6 +12,7 @@ import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
+import com.lti.pojo.Login;
 
 public interface UserService {
 	
@@ -26,4 +27,6 @@ public interface UserService {
 	void persistsEmploymentDetails(Employment employment);
 	
 	void persistsIdentityDetails(Identity identity);
+	
+	User validate(Login login);
 }

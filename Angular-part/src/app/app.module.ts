@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule } from '@angular/forms';
 import { Ng5SliderModule } from 'ng5-slider';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -50,7 +51,8 @@ import { LoginUserComponent } from './login-user/login-user.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,9 +27,9 @@ public class Vehicle {
 	@GeneratedValue(generator = "vseq", strategy = GenerationType.SEQUENCE)
 	private int vehicleId;
 	
-	@Column(length = 15)
+	@Column(length = 25)
 	private String vehicleMake;
-	@Column(length = 15)
+	@Column(length = 25)
 	private String vehicleModel;
 	
 	private double exShowroomPrice;

@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
@@ -93,5 +94,15 @@ public class UserRepoImpl implements UserRepo {
 		u.setIdentity(identity);
 		identity.setUser(u);
 		em.merge(u);
+	}
+
+	@Override
+	public User fetchLogin(String email, String password) {
+		Query query = em.createNamedQuery("login");
+		query.setParameter("uemail", email);
+		query.setParameter("pwd",password);
+		
+		return (User) query.getSingleResult();
+		
 	}
 }

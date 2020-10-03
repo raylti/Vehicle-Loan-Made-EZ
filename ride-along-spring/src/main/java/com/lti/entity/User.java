@@ -13,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,6 +21,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 @SequenceGenerator(name = "useq" ,sequenceName = "users_seq",initialValue = 101,allocationSize = 1)
+@NamedQuery(name = "uDetail", query = "Select name,email,mobileNo from User where userId =:crl")
+@NamedQuery(name = "login", query = "FROM User WHERE email=:uemail AND password=:pwd")
 public class User {
 	
 	@Id
@@ -34,13 +37,13 @@ public class User {
 	@Column(length = 10)
 	private String gender;
 	
-	@Column(length = 20)
+	@Column(length = 30)
 	private String email;
 	
 	@Column(length = 20)
 	private String password;
 	
-	@Column(length = 30)
+	@Column(length = 60)
 	private String address;
 	
 	

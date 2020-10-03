@@ -1,3 +1,4 @@
+import { VehicleLoanService } from './../services/vehicle-loan.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../loan.model';
@@ -10,12 +11,14 @@ import { User } from '../loan.model';
 export class AppForm1Component implements OnInit {
   user = new User;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service : VehicleLoanService) { }
 
   ngOnInit() {
   }
 
-  save1() {
+  saveUser() {
+    this.service.saveUser(this.user);
+    this.user = new User();
     this.router.navigate(['appForm2']);
   }
 }

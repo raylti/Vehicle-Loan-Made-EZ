@@ -30,15 +30,15 @@ public class TestUser {
 	@Test
 	public void testSave() {
 		User u1 = new User();
-		u1.setName("Rahul");
+		u1.setName("Rohan");
 		u1.setAddress("Rajeev Nagar");
-		u1.setAge(22);
+		u1.setAge(20);
 		u1.setCity("Patna");
-		u1.setEmail("email");
+		u1.setEmail("rahul@100");
 		u1.setGender("Male");
 		u1.setMobileNo("7003397408");
 		u1.setPincode("80020");
-		u1.setPassword("gygbhjk");
+		u1.setPassword("java");
 		u1.setState("Bihar");
 		
 		
@@ -98,7 +98,7 @@ public class TestUser {
 		l1.setLoanAmount(6000.0);
 		l1.setInterestRate(8.5);
 		l1.setTenure(3);
-		l1.setLoanStatus("Rejected");
+		l1.setLoanStatus("Pending");
 		
 		repo.saveLoanDetails(l1);
 	}
@@ -130,5 +130,11 @@ public class TestUser {
 		i1.setPanNo("ESDRF0120K");
 		
 		repo.saveIdentityDetails(i1);
+	}
+	
+	@Test
+	public void fetchLogin() {
+		User u = repo.fetchLogin("rahul@1", "java");
+		System.out.println(u.getEmail() + u.getName());
 	}
 }

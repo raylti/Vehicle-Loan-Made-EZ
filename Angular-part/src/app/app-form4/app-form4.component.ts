@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Loan } from '../loan.model';
+import { VehicleLoanService } from '../services/vehicle-loan.service';
 
 @Component({
   selector: 'app-app-form4',
@@ -10,12 +11,15 @@ import { Loan } from '../loan.model';
 export class AppForm4Component implements OnInit {
   loan = new Loan;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private service : VehicleLoanService) { }
 
   ngOnInit() {
   }
 
-  save4() {
+  save() {
+    this.loan.interestRate = 8.5;
+    this.loan.loanStatus = "Pending";
+    this.service.saveLoan(this.loan);
     this.router.navigate(['appForm5']);
   }
 }

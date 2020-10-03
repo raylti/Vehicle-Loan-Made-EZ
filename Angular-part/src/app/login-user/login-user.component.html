@@ -1,3 +1,4 @@
+<form (ngSubmit)='loggedIn()'>
 <body class="bg-img" style="margin-top: 70px;">
     <div class="container d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-between">
@@ -8,10 +9,10 @@
                 <p class="btn btn-primary btn-lg" style="color:white;"><b>User Login</b></p>
             </div>
             <div class="card two bg-white px-5 py-4 mb-3">
-                <div class="form-group"><input type="email" class="form-control" id="mail" required><label
+                <div class="form-group"><input type="email" name="uemail" class="form-control" id="mail" [(ngModel)]=login.email required><label
                         class="form-control-placeholder" for="mail">Email</label></div>
 
-                <div class="form-group"><input type="password" class="form-control" id="password" required><label
+                <div class="form-group"><input type="password" name="password" class="form-control" id="password" [(ngModel)]=login.password required><label
                         class="form-control-placeholder" for="password">Password</label></div>
 
                 <div style="margin-bottom: 30px;">
@@ -22,10 +23,11 @@
                         <a (click)="register()">New User?</a>
                     </span>
                 </div>
-                <button class="btn btn-primary btn-block btn-lg mt-1 mb-2" (click)="userDashboard()"><span>Login<i
+                <button class="btn btn-primary btn-block btn-lg mt-1 mb-2"><span>Login<i
                             class="fas fa-long-arrow-alt-right ml-2"></i></span></button>
 
             </div>
         </div>
     </div>
 </body>
+</form>

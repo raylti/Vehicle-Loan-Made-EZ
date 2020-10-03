@@ -64,6 +64,18 @@ public class User {
 	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Loan loan;
 	
+	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private Identity identity;
+	
+	
+	public Identity getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(Identity identity) {
+		this.identity = identity;
+	}
+
 	public Loan getLoan() {
 		return loan;
 	}

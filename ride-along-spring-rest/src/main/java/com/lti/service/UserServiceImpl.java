@@ -62,6 +62,7 @@ public class UserServiceImpl implements UserService {
 		return repo.fetchByLoanStatus(status);
 	}
 
+	@Transactional(value = TxType.REQUIRED)
 	@Override
 	public void changeStatus(int lid, String status) {
 		repo.changeStatus(lid, status);

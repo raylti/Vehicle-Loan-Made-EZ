@@ -17,6 +17,7 @@ import javax.transaction.Transactional.TxType;
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Employment;
+import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
@@ -83,4 +84,14 @@ public class UserRepoImpl implements UserRepo {
 		employment.setUser(u);
 		em.merge(u);
 		}
+
+	@Transactional(value = TxType.REQUIRED)
+	@Override
+	public void saveIdentityDetails(Identity identity) {
+		int result = (int) em.createNamedQuery("max_id3").getSingleResult();
+		User u = em.find(User.class, result);
+		u.setIdentity(identity);
+		identity.setUser(u);
+		em.merge(u);
+	}
 }

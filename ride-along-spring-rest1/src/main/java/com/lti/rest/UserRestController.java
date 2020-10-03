@@ -6,16 +6,9 @@
  */
 package com.lti.rest;
 
-import java.util.List;
-
-import javax.persistence.QueryHint;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.lti.entity.Employment;
@@ -62,26 +55,4 @@ public class UserRestController {
 		service.persistsLoanDetails(loan);
 		return "Loan Details added successfully";
 	}
-//	http://localhost:8080/ride-along-spring-rest/rest/fetch/{id}
-	@GetMapping(value = "/fetch/{id}", produces = "application/json")
-	public String fetchUser(@PathVariable int id) {
-		return service.fetchUser(id);
-	}
-//	http://localhost:8080/ride-along-spring-rest/rest/fetch_by_loan_status/{status}
-	@GetMapping(value="/fetch_by_loan_status/{status}",produces="application/json")
-	public List<Loan> fetchByLoanStatus(@PathVariable String status) {
-		return service.fetchByLoanStatus(status);
-	}
-	
-//	http://localhost:8080/ride-along-spring-rest/rest/change_loan_status/Rejected
-	@PutMapping(value="/change_loan_status/Rejected",consumes ="application/json")
-	public String changeLoanStatus(@RequestBody Loan loan) {
-		loan.setLoanStatus("Rejected");
-		service.persistsLoanDetails(loan);
-		return "updated successfully";
-	}
-	
-	
-	
-
 }

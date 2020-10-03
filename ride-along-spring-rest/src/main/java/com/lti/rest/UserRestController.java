@@ -73,15 +73,10 @@ public class UserRestController {
 		return service.fetchByLoanStatus(status);
 	}
 	
-//	http://localhost:8080/ride-along-spring-rest/rest/change_loan_status/101/lid/Approved/status
-	@PutMapping(value="/change_loan_status/Rejected",consumes ="application/json")
-	public String changeLoanStatus(@RequestBody Loan loan) {
-		loan.setLoanStatus("Rejected");
-		service.persistsLoanDetails(loan);
-		return "updated successfully";
+//	http://localhost:8080/ride-along-spring-rest/rest/change_loan_status/101/Approved
+	@GetMapping(value="/change_loan_status/{lid}/{status}", produces ="application/json")
+	public String changeLoanStatus(@PathVariable int lid, @PathVariable String status) {
+		service.changeStatus(lid,status);
+		return "Loan Application " + status;
 	}
-	
-	
-	
-
 }

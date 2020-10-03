@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lti.entity.Employment;
+import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
@@ -57,13 +58,19 @@ public class TestUser {
 		e1.setAnnualIncome(50000.0);
 		e1.setEmploymentType("Salaried");
 		
+		Identity i1 = new Identity();
+		i1.setAadhaarNo("125214563214");
+		i1.setPanNo("ESDRF0120K");
+		
 		v1.setUser(u1);
 		l1.setUser(u1);
 		e1.setUser(u1);
+		i1.setUser(u1);
 		
 		u1.setVeh(v1);
 		u1.setLoan(l1);
 		u1.setEmp(e1);
+		u1.setIdentity(i1);
 		
 		repo.saveUser(u1);
 	}
@@ -114,5 +121,14 @@ public class TestUser {
 		e1.setEmploymentType("Salaried");
 		
 		repo.saveEmploymentDetails(e1);
+	}
+	
+	@Test
+	public void saveIdentityDetails() {
+		Identity i1 = new Identity();
+		i1.setAadhaarNo("125214563214");
+		i1.setPanNo("ESDRF0120K");
+		
+		repo.saveIdentityDetails(i1);
 	}
 }

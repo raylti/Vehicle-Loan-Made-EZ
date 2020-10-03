@@ -7,8 +7,6 @@
 
 package com.lti.repo;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -23,34 +21,11 @@ import com.lti.entity.Vehicle;
 @Repository
 public class UserRepoImpl implements UserRepo {
 
-	
 	@PersistenceContext
 	private EntityManager em;
-	
 
 	public void saveUser(User user) {
 		em.persist(user);
-	}
-
-	public String fetchUser(int uid) {
-		User u = em.find(User.class, uid);
-		Loan l = new Loan();
-		Vehicle v = new Vehicle();
-		
-		l = u.getLoan();
-		
-		return u.getName()+ "\t"+ l.getLoanAmount();
-	}
-
-	@Override
-	public List<Loan> fetchByLoanStatus(String status) {
-		return em.createNamedQuery("loan_status").setParameter("crl", status).getResultList();
-	}
-
-	public void changeStatus(int lid, String status) {
-		Loan l1 = em.find(Loan.class,lid);
-		l1.setLoanStatus(status);
-		em.merge(l1);
 	}
 
 	public void saveUserDetails(User user) {
@@ -63,9 +38,8 @@ public class UserRepoImpl implements UserRepo {
 		u.setLoan(loan);
 		loan.setUser(u);
 		em.merge(u);
-		}
+	}
 
-	
 	public void saveVehicleDetails(Vehicle vehicle) {
 		int result = (int) em.createNamedQuery("max_id1").getSingleResult();
 		User u = em.find(User.class, result);
@@ -80,13 +54,13 @@ public class UserRepoImpl implements UserRepo {
 		u.setEmp(employment);
 		employment.setUser(u);
 		em.merge(u);
-		}
-	
+	}
+
 	public void saveIdentityDetails(Identity identity) {
 		int result = (int) em.createNamedQuery("max_id3").getSingleResult();
 		User u = em.find(User.class, result);
 		u.setIdentity(identity);
 		identity.setUser(u);
 		em.merge(u);
-		}
+	}
 }

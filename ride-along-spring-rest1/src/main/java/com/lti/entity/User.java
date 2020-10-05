@@ -76,7 +76,6 @@ public class User {
 	@JoinColumn(name ="loanId")
 	private Loan loan;
 	
-	@JsonIgnore
 	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Identity identity;
 	

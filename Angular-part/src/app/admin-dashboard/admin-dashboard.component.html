@@ -1,99 +1,125 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
 <!-- Accordion START -->
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default" style="margin-bottom:50px;">
-        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-            data-target="#collapseOne">
-            <h4 class="panel-title"><b>Clients</b></h4>
+<div class="container">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default" style="margin-bottom:50px;">
+            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                data-target="#collapseOne">
+                <h4 class="panel-title"><b>Clients</b></h4>
 
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse">
-            <div class="panel-body">
-                <table style="width:700px;" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th style="width:125px;" (click)="sortById()">Loan ID</th>
-                            <th style="width:300px;">Loan Amount</th>
-                            <th style="width:160px;">Interest Rate</th>
-                            <th>Tenure</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of listApproved">
-                            <td>{{ user.loanId }}</td>
-                            <td>{{ user.loanAmount }}</td>
-                            <td>{{ user.interestRate }}</td>
-                            <td>{{ user.tenure }}</td>                
-                        </tr>
-                    </tbody>
-                </table>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Loan ID</th>
+                                <th>Name</th>
+                                <th>Loan Amount (₹)</th>
+                                <th>Tenure (Years)</th>
+                                <th>Email</th>
+                                <th>Contact No.</th>
+                                <th>Aadhar No.</th>
+                                <th>Pan No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let users of listApproved">
+                                <td>{{ users.loanId }}</td>
+                                <td>{{ users.user.name }}</td>
+                                <td>{{ users.loanAmount }}</td>
+                                <td>{{ users.tenure }}</td>
+                                <td>{{ users.user.email }}</td>
+                                <td>{{ users.user.mobileNo }}</td>
+                                <td>{{ users.user.identity.aadhaarNo }}</td>
+                                <td>{{ users.user.identity.panNo }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="panel panel-default" style="margin-bottom:50px;">
-        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-            data-target="#collapseTwo">
-            <h4 class="panel-title"><b>Application</b></h4>
+        <div class="panel panel-default" style="margin-bottom:50px;">
+            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                data-target="#collapseTwo">
+                <h4 class="panel-title"><b>Application</b></h4>
 
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-            <div class="panel-body">
-                <table style="width:700px;" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th style="width:400px;" (click)="sortById()">Loan ID</th>
-                            <th style="width:600px;">Loan Amount</th>
-                            <th style="width:500px;">Interest Rate</th>
-                            <th>Tenure</th>
-                            <th style="width:800px;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of listPending">
-                            <td>{{ user.loanId }}</td>
-                            <td>{{ user.loanAmount }}</td>
-                            <td>{{ user.interestRate }}</td>
-                            <td>{{ user.tenure }}</td>
-                            <td>
-                                <button class="btn btn-success" (click)="approve(user.loanId)">Approve</button>
-                                &nbsp;&nbsp;
-                                <button class="btn btn-danger" (click)="reject(user.loanId)">Reject</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Loan ID</th>
+                                <th>Name</th>
+                                <th>Loan Amount (₹)</th>
+                                <th>Tenure (Years)</th>
+                                <th>Email</th>
+                                <th>Contact No.</th>
+                                <th>Aadhar No.</th>
+                                <th>Pan No.</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let users of listPending">
+                                <td>{{ users.loanId }}</td>
+                                <td>{{ users.user.name }}</td>
+                                <td>{{ users.loanAmount }}</td>
+                                <td>{{ users.tenure }}</td>
+                                <td>{{ users.user.email }}</td>
+                                <td>{{ users.user.mobileNo }}</td>
+                                <td>{{ users.user.identity.aadhaarNo }}</td>
+                                <td>{{ users.user.identity.panNo }}</td>
+                                <td>
+                                    <button class="btn btn-success" (click)="approve(users.loanId,users.user.name)">Approve</button>
+                                    &nbsp;&nbsp;
+                                    <button class="btn btn-danger" (click)="reject(users.loanId,users.user.name)">Reject</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-            data-target="#collapseThree">
-            <h4 class="panel-title"><b>Rejected list</b></h4>
+        <div class="panel panel-default">
+            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+                data-target="#collapseThree">
+                <h4 class="panel-title"><b>Rejected list</b></h4>
 
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
-                <table style="width:700px;" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th style="width:125px;" (click)="sortById()">Loan ID</th>
-                            <th style="width:300px;">Loan Amount</th>
-                            <th style="width:160px;">Interest Rate</th>
-                            <th>Tenure</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of listRejected">
-                            <td>{{ user.loanId }}</td>
-                            <td>{{ user.loanAmount }}</td>
-                            <td>{{ user.interestRate }}</td>
-                            <td>{{ user.tenure }}</td>                        
-                        </tr>
-                    </tbody>
-                </table>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Loan ID</th>
+                                <th>Name</th>
+                                <th>Loan Amount (₹)</th>
+                                <th>Tenure (Years)</th>
+                                <th>Email</th>
+                                <th>Contact No.</th>
+                                <th>Aadhar No.</th>
+                                <th>Pan No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let users of listRejected">
+                                <td>{{ users.loanId }}</td>
+                                <td>{{ users.user.name }}</td>
+                                <td>{{ users.loanAmount }}</td>
+                                <td>{{ users.tenure }}</td>
+                                <td>{{ users.user.email }}</td>
+                                <td>{{ users.user.mobileNo }}</td>
+                                <td>{{ users.user.identity.aadhaarNo }}</td>
+                                <td>{{ users.user.identity.panNo }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

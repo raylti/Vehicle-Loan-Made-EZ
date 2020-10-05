@@ -1,64 +1,120 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    
-        <h2>User Dashboard</h2>
-    
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">     
-                <span class="title">Loan Status </span>
-                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Accordion START -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Welcome &nbsp;{{ uname }}</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" [routerLink]="['/userDashboard']">Profile</a>
+                <a class="dropdown-item" [routerLink]="['/user']">Logout</a>
             </div>
-            <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                <div class="card-body">
-                    Pending
-                    Approved
-                    Rejected
-                </div>
+        </li>
+    </ul>
+</nav>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" style="margin-bottom:50px;">
+        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+            data-target="#collapseOne">
+            <h4 class="panel-title"><b>Personal Details</b></h4>
+
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>User ID</td>
+                            <td>{{ user.userId }}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>{{ user.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email ID</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td>{{ user.age }}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>{{ user.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact No</td>
+                            <td>{{ user.mobileNo }}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>{{ user.address }}</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>{{ user.city }}</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>{{ user.state }}</td>
+                        </tr>
+                        <tr>
+                            <td>Pincode</td>
+                            <td>{{ user.pincode }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">     
-                <span class="title">Loan Detail</span>
-                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-            </div>
-            <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                <div class="card-body">
-                   Principal
-                   Rate
-                   Tenure
-                </div>
+    </div>
+
+    <div class="panel panel-default" style="margin-bottom:50px;">
+        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+            data-target="#collapseTwo">
+            <h4 class="panel-title"><b>Loan Status</b></h4>
+
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Loan ID</td>
+                            <td>{{ loan.loanId }}</td>
+                        </tr>
+                        <tr>
+                            <td>Loan Amount</td>
+                            <td>₹ {{ loan.loanAmount }}</td>
+                        </tr>
+                        <tr>
+                            <td>Loan Tenure</td>
+                            <td>{{ loan.tenure }} years</td>
+                        </tr>
+                        <tr>
+                            <td>Interest Rate</td>
+                            <td>{{ loan.interestRate }} %</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Your Loan Application Status is <b>{{ loan.loanStatus }}.</b></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false">
-                <span class="title">EMI Scheduler</span>
-                <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-            </div>
-            <div id="collapseThree" class="collapse" data-parent="#accordionExample">
-                <div class="card-body">
-                    Loan EMI
-                    Total Interest payable
-                    Total Payment
-                </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+            data-target="#collapseThree">
+            <h4 class="panel-title"><b>EMI Scheduler</b></h4>
+
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                EMI Scheduler will come here.
             </div>
         </div>
     </div>
 </div>
-  
-
-
-  
-
-
-</body>
-</html>

@@ -15,6 +15,7 @@ export class Eligibility {
 }
 
 export class User {
+    public userId : number;
     public name : string;
     public age : number;
     public gender : string;
@@ -40,6 +41,7 @@ export class Vehicle {
 }
 
 export class Loan {
+    public loanId : number;
     public loanAmount :number;
     public interestRate : number;
     public tenure : number;

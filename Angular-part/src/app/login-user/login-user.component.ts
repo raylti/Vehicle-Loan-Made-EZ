@@ -10,30 +10,26 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./login-user.component.css']
 })
 export class LoginUserComponent implements OnInit {
-  login : Login;
-  user : User;
+  login: Login;
+  user: User;
 
-  constructor(private service : UserService, private router : Router) {
+  constructor(private service: UserService, private router: Router) {
     this.login = new Login();
   }
 
-  ngOnInit() : void {
-    localStorage.setItem("user",null);
+  ngOnInit(): void {
+    localStorage.setItem("user", null);
   }
 
   async loggedIn() {
-   await this.service.login(this.login).then(data => this.user = data);
-    
-  //  localStorage.setItem("user", JSON.stringify(this.user));
-  //  localStorage.setItem("uname", this.user.name);
+    await this.service.login(this.login).then(data => this.user = data);
+
+    localStorage.setItem("user", JSON.stringify(this.user));
+    localStorage.setItem("uname", this.user.name);
     this.router.navigate(['userDashboard']);
   }
 
   register() {
     this.router.navigate(['appForm1']);
   }
-
-  // userDashboard() {
-  //   this.router.navigate(['userDashboard']);
-  // }
 }

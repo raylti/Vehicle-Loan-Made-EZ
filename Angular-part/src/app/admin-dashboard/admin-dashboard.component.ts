@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Loan } from '../loan.model';
+import { Loan, User } from '../loan.model';
 import { VehicleLoanService } from '../services/vehicle-loan.service';
 
 @Component({
@@ -21,19 +21,15 @@ export class AdminDashboardComponent implements OnInit {
     this.service.fetchRejected().subscribe(data => this.listRejected = data);
   }
 
-  async approve(id: number) {
-    var ans = confirm("Do you want to Approve this Loan?" + id);
+  async approve(id: number, name:string) {
+    var ans = confirm("Do you want to Approve the Loan Application for " + name+ " ?");
     if (ans)
       await this.service.approve(id);
   }
 
-  async reject(id: number) {
-    var ans = confirm("Do you want to Reject this Loan?" + id);
+  async reject(id: number, name:string) {
+    var ans = confirm("Do you want to Reject the Loan Application for " + name+ " ?");
     if (ans)
       await this.service.reject(id);
-  }
-
-  fetchUser(id : number) {
-    this.service.fetchUser(id);
   }
 }

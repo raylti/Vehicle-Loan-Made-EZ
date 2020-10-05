@@ -25,4 +25,5 @@ public interface UserService {
 	
 	void persistsIdentityDetails(Identity identity);
 	
+	Loan fetchloanByUserId(int id);
 }

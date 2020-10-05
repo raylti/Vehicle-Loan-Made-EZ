@@ -63,4 +63,9 @@ public class UserRepoImpl implements UserRepo {
 		identity.setUser(u);
 		em.merge(u);
 	}
+
+	@Override
+	public Loan fetchloanByUserId(int id) {
+		return (Loan) em.createNamedQuery("userId").setParameter("crl", id).getSingleResult();
+	}
 }

@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SequenceGenerator(name = "loseq" ,sequenceName = "loan_seq",initialValue = 101,allocationSize = 1)
 @NamedQuery(name = "loan_status", query = "FROM Loan WHERE loanStatus =:crl")
 @NamedQuery(name = "max_id", query = "SELECT MAX(userId) FROM User")
+@NamedQuery(name = "userId", query = "FROM Loan WHERE userId =:crl")
+
 public class Loan {
 	
 	@Id
@@ -38,7 +40,6 @@ public class Loan {
 	@Column(length = 10)
 	private String loanStatus;
 	
-	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "userId")
 	private User user;

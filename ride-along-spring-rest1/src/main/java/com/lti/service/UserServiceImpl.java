@@ -53,4 +53,9 @@ public class UserServiceImpl implements UserService {
 	public void persistsIdentityDetails(Identity identity) {
 		repo.saveIdentityDetails(identity);
 	}
+
+	@Override
+	public Loan fetchloanByUserId(int id) {
+		return repo.fetchloanByUserId(id);
+	}
 }

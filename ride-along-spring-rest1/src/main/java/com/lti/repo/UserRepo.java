@@ -25,5 +25,7 @@ public interface UserRepo {
 	void saveEmploymentDetails(Employment employment);
 	
 	void saveIdentityDetails(Identity identity);
+	
+	Loan fetchloanByUserId(int id);
 
 }

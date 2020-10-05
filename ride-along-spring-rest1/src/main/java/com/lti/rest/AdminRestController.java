@@ -26,19 +26,19 @@ public class AdminRestController {
 	@Autowired
 	public AdminService service;
 	
-//	http://localhost:8080/ride-along-spring-rest/rest/fetch/{id}
+//	http://localhost:8080/ride-along-spring-rest1/rest/fetch/{id}
 	@GetMapping(value = "/fetch/{id}", produces = "application/json")
 	public User fetchUser(@PathVariable int id) {
 		return service.fetchUser(id);
 	}
 	
-//	http://localhost:8080/ride-along-spring-rest/rest/fetch_by_loan_status/{status}
+//	http://localhost:8080/ride-along-spring-rest1/rest/fetch_by_loan_status/{status}
 	@GetMapping(value="/fetch_by_loan_status/{status}",produces="application/json")
 	public List<Loan> fetchByLoanStatus(@PathVariable String status) {
 		return service.fetchByLoanStatus(status);
 	}
 	
-//	http://localhost:8080/ride-along-spring-rest/rest/change_loan_status/101/Approved
+//	http://localhost:8080/ride-along-spring-rest1/rest/change_loan_status/101/Approved
 	@GetMapping(value="/change_loan_status/{lid}/{status}", produces ="application/json")
 	public String changeLoanStatus(@PathVariable int lid, @PathVariable String status) {
 		service.changeStatus(lid,status);

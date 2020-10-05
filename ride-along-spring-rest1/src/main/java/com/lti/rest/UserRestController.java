@@ -8,6 +8,8 @@ package com.lti.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,5 +56,11 @@ public class UserRestController {
 	public String addLoanDetails(@RequestBody Loan loan) {
 		service.persistsLoanDetails(loan);
 		return "Loan Details added successfully";
+	}
+	
+	//	http://localhost:8080/ride-along-spring-rest1/rest/fetch_by_userId/{id}
+	@GetMapping(value = "/fetch_by_userId/{id}", produces = "application/json")
+	public Loan fetchLoanByUserId(@PathVariable int id) {
+		return service.fetchloanByUserId(id);
 	}
 }

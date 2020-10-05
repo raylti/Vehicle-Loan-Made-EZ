@@ -9,13 +9,15 @@ import { VehicleLoanService } from '../services/vehicle-loan.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  list : Loan[] = [];
+  listPending : Loan[] = [];
+  listApproved : Loan[] = [];
+  listRejected : Loan[] = [];
  
   constructor(private service : VehicleLoanService, private router : Router) { }
 
   ngOnInit() {
-    this.service.fetchPending().subscribe(data => this.list = data);
+    this.service.fetchPending().subscribe(data => this.listPending = data);
+    this.service.fetchApproved().subscribe(data => this.listApproved = data);
+    this.service.fetchRejected().subscribe(data => this.listRejected = data);
   }
-
-
 }

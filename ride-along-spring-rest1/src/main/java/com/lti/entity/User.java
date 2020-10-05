@@ -1,6 +1,6 @@
 
 /**
- * Saves User's personal details.
+ * Saves User's personal details. It has one-to-one mapping with Loan,Employment,Identity,Vehicle.
  * @author: Abhinav
  * @Version:1.0
  * 
@@ -13,10 +13,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -36,6 +41,7 @@ public class User {
 	@Column(length = 10)
 	private String gender;
 	
+	@NaturalId
 	@Column(length = 30)
 	private String email;
 	
@@ -57,15 +63,20 @@ public class User {
 	@Column(length = 15)
 	private String mobileNo;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Employment emp;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Vehicle veh;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@JoinColumn(name ="loanId")
 	private Loan loan;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Identity identity;
 	

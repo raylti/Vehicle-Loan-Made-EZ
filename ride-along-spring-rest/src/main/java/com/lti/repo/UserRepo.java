@@ -1,12 +1,10 @@
 /**
- * Declare methods 
+ * Declaring methods for the use of User.
  * @author: Rahul
  * @Version:1.0
  * 
  */
 package com.lti.repo;
-
-import java.util.List;
 
 import com.lti.entity.Employment;
 import com.lti.entity.Loan;
@@ -27,11 +25,5 @@ public interface UserRepo {
 	void saveEmploymentDetails(Employment employment);
 	
 	void saveIdentityDetails(Identity identity);
-	
-	String fetchUser(int uid);
-	
-	List<Loan> fetchByLoanStatus(String status);
-	
-	void changeStatus(int lid, String status);
-	
+
 }

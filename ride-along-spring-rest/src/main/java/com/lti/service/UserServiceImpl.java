@@ -1,12 +1,9 @@
 /**
- * Saves User's personal details.
+ * Method Declaration Service Class
  * @author: Abhinav
  * @Version:1.0
- * 
  */
 package com.lti.service;
-
-import java.util.List;
 
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
@@ -52,25 +49,8 @@ public class UserServiceImpl implements UserService {
 		repo.saveEmploymentDetails(employment);
 	}
 
-	@Override
-	public String fetchUser(int uid) {
-		return repo.fetchUser(uid);
-	}
-
-	@Override
-	public List<Loan> fetchByLoanStatus(String status) {
-		return repo.fetchByLoanStatus(status);
-	}
-
-	@Transactional(value = TxType.REQUIRED)
-	@Override
-	public void changeStatus(int lid, String status) {
-		repo.changeStatus(lid, status);
-	}
-
 	@Transactional(value = TxType.REQUIRED)
 	public void persistsIdentityDetails(Identity identity) {
 		repo.saveIdentityDetails(identity);
 	}
-
 }

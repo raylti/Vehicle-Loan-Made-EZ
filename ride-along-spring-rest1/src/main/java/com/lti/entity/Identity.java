@@ -1,5 +1,5 @@
 /**
- * Saves Identity details.
+ * Saves Identity details. It has one-to-one mapping with User.
  * @author: Yugandhara
  * @Version:1.0
   
@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "identity_det")
 @SequenceGenerator(name = "identityseq" ,sequenceName = "identity_seq",initialValue = 101,allocationSize = 1)
@@ -33,6 +35,7 @@ public class Identity {
 	@Column(length = 15)
 	private String panNo;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "userId")
 	private User user;

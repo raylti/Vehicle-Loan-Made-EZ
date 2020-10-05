@@ -1,84 +1,100 @@
-<!DOCTYPE html>
-<html>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Accordion START -->
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" style="margin-bottom:50px;">
+        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+            data-target="#collapseOne">
+            <h4 class="panel-title"><b>Clients</b></h4>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <div class="container">
-
-        <h2>Admin Dashboard</h2>
-
-        <div class="accordion" id="accordionExample">
-            <div class="card">
-                <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">
-                    <span class="title">Clients </span>
-                    <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-                </div>
-                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                    <div class="card-body">
-                        Name
-                        Loan Amount
-                        Email
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="false" aria-controls="collapseTwo">
-                    <span class="title">Application</span>
-                    <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-                </div>
-                <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <table style="width:700px;" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th style="width:125px;" (click)="sortById()">Loan ID</th>
-                                    <th>Loan Amount</th>
-                                    <th style="width:160px;">Interest Rate</th>
-                                    <th>Tenure</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let user of list">
-                                    <td>{{ user.loanId }}</td>
-                                    <td>{{ user.loanAmount }}</td>
-                                    <td>{{ user.interestRate }}</td>
-                                    <td>{{ user.tenure }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseThree"
-                    aria-expanded="false">
-                    <span class="title">Rejected list</span>
-                    <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-                </div>
-                <div id="collapseThree" class="collapse" data-parent="#accordionExample">
-                    <div class="card-body">
-                        Name
-                        Loan Amount
-                        Email
-                    </div>
-                </div>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table style="width:700px;" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width:125px;" (click)="sortById()">Loan ID</th>
+                            <th style="width:300px;">Loan Amount</th>
+                            <th style="width:160px;">Interest Rate</th>
+                            <th>Tenure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of listApproved">
+                            <td>{{ user.loanId }}</td>
+                            <td>{{ user.loanAmount }}</td>
+                            <td>{{ user.interestRate }}</td>
+                            <td>{{ user.tenure }}</td>                
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
+    <div class="panel panel-default" style="margin-bottom:50px;">
+        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+            data-target="#collapseTwo">
+            <h4 class="panel-title"><b>Application</b></h4>
 
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table style="width:700px;" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width:125px;" (click)="sortById()">Loan ID</th>
+                            <th style="width:300px;">Loan Amount</th>
+                            <th style="width:160px;">Interest Rate</th>
+                            <th>Tenure</th>
+                            <th style="width:300px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of listPending">
+                            <td>{{ user.loanId }}</td>
+                            <td>{{ user.loanAmount }}</td>
+                            <td>{{ user.interestRate }}</td>
+                            <td>{{ user.tenure }}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="editEmp(emp.empid)">Approve</button>
+                                &nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="deleteEmp(emp.empid)">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
+    <div class="panel panel-default">
+        <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
+            data-target="#collapseThree">
+            <h4 class="panel-title"><b>Rejected list</b></h4>
 
-
-
-</body>
-
-</html>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table style="width:700px;" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width:125px;" (click)="sortById()">Loan ID</th>
+                            <th style="width:300px;">Loan Amount</th>
+                            <th style="width:160px;">Interest Rate</th>
+                            <th>Tenure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of listRejected">
+                            <td>{{ user.loanId }}</td>
+                            <td>{{ user.loanAmount }}</td>
+                            <td>{{ user.interestRate }}</td>
+                            <td>{{ user.tenure }}</td>                        
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

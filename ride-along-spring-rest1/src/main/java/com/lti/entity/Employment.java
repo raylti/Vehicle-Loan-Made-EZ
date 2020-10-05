@@ -1,5 +1,5 @@
 /**
- * Saves employment details.
+ * Saves employment details. It has one-to-one mapping with User.
  * @author: Yugandhara
  * @Version:1.0
  * 
@@ -17,6 +17,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "emp_det")
 @SequenceGenerator(name = "empseq" ,sequenceName = "empl_seq",initialValue = 101,allocationSize = 1)
@@ -32,6 +34,7 @@ public class Employment {
 	private double annualIncome;
 	private double existingEmi;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "userId")
 	private User user;

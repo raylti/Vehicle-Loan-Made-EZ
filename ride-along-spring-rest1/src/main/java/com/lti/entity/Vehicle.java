@@ -1,5 +1,5 @@
 /**
- * Saves vehicle details.
+ * Saves vehicle details. It has one-to-one mapping with User.
  * @author: Abhinav
  * @Version:1.0
  * 
@@ -16,6 +16,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "veh_det")
@@ -34,6 +36,7 @@ public class Vehicle {
 	
 	private double exShowroomPrice;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "userId")
 	private User user;

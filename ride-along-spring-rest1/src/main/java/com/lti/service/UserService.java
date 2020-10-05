@@ -1,9 +1,7 @@
-
 /**
- *
+ * Method Declaration Service Class
  * @author: Abhinav
  * @Version:1.0
- * 
  */
 package com.lti.service;
 
@@ -12,7 +10,6 @@ import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
-import com.lti.pojo.Login;
 
 public interface UserService {
 	
@@ -28,5 +25,4 @@ public interface UserService {
 	
 	void persistsIdentityDetails(Identity identity);
 	
-	User validate(Login login);
 }

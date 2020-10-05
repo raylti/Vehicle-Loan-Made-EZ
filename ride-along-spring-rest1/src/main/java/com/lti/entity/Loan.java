@@ -1,6 +1,6 @@
 /**
- * Saves Loan details.
- * @author: Yugandhara
+ * Saves Loan details. It has one-to-one mapping with User.
+ * @author: Yugandhara 
  * @Version:1.0
   
  */
@@ -18,10 +18,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "loan_det")
 @SequenceGenerator(name = "loseq" ,sequenceName = "loan_seq",initialValue = 101,allocationSize = 1)
-@NamedQuery(name = "loan_status", query = "Select loanId, loanAmount,interestRate,tenure FROM Loan WHERE loanStatus =:crl")
+@NamedQuery(name = "loan_status", query = "FROM Loan WHERE loanStatus =:crl")
 @NamedQuery(name = "max_id", query = "SELECT MAX(userId) FROM User")
 public class Loan {
 	
@@ -36,6 +38,7 @@ public class Loan {
 	@Column(length = 10)
 	private String loanStatus;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "userId")
 	private User user;

@@ -28,7 +28,7 @@
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <input id="annualIncome" name="annualIncome" placeholder="Annual Income" [(ngModel)]="employ.annualIncome" class="form-control"
-                    value="" type="number" required pattern="[1][0-9]{5,}" #annual='ngModel' min="100000"/>
+                    value="" type="number" required pattern="[1][0-9]{5,}" #annual='ngModel' min="100000" step="10000"/>
                 </div>
                 <span *ngIf="annual.touched && annual.invalid" class="alert-danger">
                   Invalid annual income.
@@ -43,7 +43,7 @@
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <input id="emi" name="emi" placeholder="EMI" [(ngModel)]="employ.existingEmi" class="form-control"
-                    value="" type="number" required pattern="[0-9]{1,}" #emi='ngModel' />
+                    value="" type="number" required pattern="[0-9]{1,}" step="1000" #emi='ngModel' />
                 </div>
                 <span *ngIf="emi.touched && emi.invalid" class="alert-danger">
                   Invalid EMI value!

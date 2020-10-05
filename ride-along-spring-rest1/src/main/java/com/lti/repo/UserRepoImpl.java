@@ -1,5 +1,5 @@
 /**
- * Method Definition
+ * Defining methods for the use of User.
  * @author: Rahul
  * @Version:1.0
  * 
@@ -9,7 +9,6 @@ package com.lti.repo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +17,6 @@ import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
-import com.lti.pojo.Login;
 
 @Repository
 public class UserRepoImpl implements UserRepo {
@@ -64,14 +62,5 @@ public class UserRepoImpl implements UserRepo {
 		u.setIdentity(identity);
 		identity.setUser(u);
 		em.merge(u);
-	}
-
-	@Override
-	public User authenticate(Login login) {
-		Query query = em.createNamedQuery("login");
-		query.setParameter("uemail", login.getEmail());
-		query.setParameter("pwd", login.getPassword());
-		
-		return (User) query.getSingleResult();
 	}
 }

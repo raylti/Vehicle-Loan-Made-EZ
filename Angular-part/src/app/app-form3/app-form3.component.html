@@ -54,7 +54,7 @@
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <span class="input-group-addon"></span><input id="price" name="price" placeholder="Price in Rupees"
-                    [(ngModel)]="vehicle.exShowroomPrice" class="form-control" type="number" min="10000" required
+                    [(ngModel)]="vehicle.exShowroomPrice" class="form-control" type="number" min="10000" step="1000" required
                     pattern="[1-9][0-9]{4,}" #ePrice='ngModel' />
                 </div>
                 <span *ngIf="ePrice.touched && ePrice.invalid" class="alert-danger">

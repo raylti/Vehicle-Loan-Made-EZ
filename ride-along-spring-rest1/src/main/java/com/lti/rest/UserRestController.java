@@ -1,5 +1,5 @@
 /**
- * Saves User's personal details.
+ * Controller class for rest connection of User's methods.
  * @author: Abhinav
  * @Version:1.0
  * 
@@ -8,17 +8,14 @@ package com.lti.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.lti.entity.Employment;
 import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
-import com.lti.pojo.Login;
 import com.lti.service.UserService;
 
 @CrossOrigin
@@ -57,15 +54,5 @@ public class UserRestController {
 	public String addLoanDetails(@RequestBody Loan loan) {
 		service.persistsLoanDetails(loan);
 		return "Loan Details added successfully";
-	}
-	
-	@GetMapping(value ="/login", produces = "application/json")
-	public User login(@RequestParam("email") String email,
-			@RequestParam("password") String password) {
-		
-		Login login = new Login(email,password);
-		User user = service.validate(login);
-		System.out.println(user.getEmail() + "\t" + user.getPassword());
-		return user;
 	}
 }

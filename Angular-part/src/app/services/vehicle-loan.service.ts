@@ -38,8 +38,19 @@ export class VehicleLoanService {
       data => data = identity);
   }
 
+  fetchUser(id : number) {
+    return this.http.get<User>(this.baseUrl + "/fetch/"+id);
+  }
+
   fetchPending() {
     return this.http.get<Loan[]>(this.baseUrl + "/fetch_by_loan_status/Pending");
   }
 
+  fetchApproved() {
+    return this.http.get<Loan[]>(this.baseUrl + "/fetch_by_loan_status/Approved");
+  }
+
+  fetchRejected() {
+    return this.http.get<Loan[]>(this.baseUrl + "/fetch_by_loan_status/Rejected");
+  }
 }

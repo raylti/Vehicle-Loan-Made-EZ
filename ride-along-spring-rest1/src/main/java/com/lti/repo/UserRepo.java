@@ -1,5 +1,5 @@
 /**
- * Declare methods 
+ * Declaring methods for the use of User.
  * @author: Rahul
  * @Version:1.0
  * 
@@ -10,7 +10,6 @@ import com.lti.entity.Employment;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
-import com.lti.pojo.Login;
 import com.lti.entity.Identity;
 
 public interface UserRepo {
@@ -26,6 +25,5 @@ public interface UserRepo {
 	void saveEmploymentDetails(Employment employment);
 	
 	void saveIdentityDetails(Identity identity);
-	
-	User authenticate(Login login);
+
 }

@@ -1,8 +1,7 @@
 /**
- * Saves User's personal details.
+ * Method Declaration Service Class
  * @author: Abhinav
  * @Version:1.0
- * 
  */
 package com.lti.service;
 
@@ -17,7 +16,6 @@ import com.lti.entity.Identity;
 import com.lti.entity.Loan;
 import com.lti.entity.User;
 import com.lti.entity.Vehicle;
-import com.lti.pojo.Login;
 import com.lti.repo.UserRepo;
 
 @Service
@@ -54,10 +52,5 @@ public class UserServiceImpl implements UserService {
 	@Transactional(value = TxType.REQUIRED)
 	public void persistsIdentityDetails(Identity identity) {
 		repo.saveIdentityDetails(identity);
-	}
-
-	@Override
-	public User validate(Login login) {
-		return repo.authenticate(login);
 	}
 }

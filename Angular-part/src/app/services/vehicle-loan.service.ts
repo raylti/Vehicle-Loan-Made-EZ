@@ -53,4 +53,12 @@ export class VehicleLoanService {
   fetchRejected() {
     return this.http.get<Loan[]>(this.baseUrl + "/fetch_by_loan_status/Rejected");
   }
+
+  approve(id : number) {
+    return this.http.get(this.baseUrl + "/change_loan_status/" + id + "/Approved").subscribe();
+  }
+
+  reject(id : number) {
+    return this.http.get(this.baseUrl + "/change_loan_status/" + id + "/Rejected").subscribe();
+  }
 }

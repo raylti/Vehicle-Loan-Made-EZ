@@ -1,3 +1,4 @@
+import { Admin } from './../login.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-admin.component.css']
 })
 export class LoginAdminComponent implements OnInit {
+  admin = new Admin;
 
   constructor(private router : Router) { }
 
@@ -14,6 +16,9 @@ export class LoginAdminComponent implements OnInit {
   }
 
   adminDashboard() {
-    this.router.navigate(['adminDashboard']);
+    if(this.admin.email == "ray123@gmail.com" && this.admin.password == "gladiator")
+      this.router.navigate(['adminDashboard']);
+    else
+      alert("Invalid Email or Password");
   }
 }

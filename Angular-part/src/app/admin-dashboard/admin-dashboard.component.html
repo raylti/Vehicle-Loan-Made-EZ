@@ -43,11 +43,11 @@
                 <table style="width:700px;" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th style="width:125px;" (click)="sortById()">Loan ID</th>
-                            <th style="width:300px;">Loan Amount</th>
-                            <th style="width:160px;">Interest Rate</th>
+                            <th style="width:400px;" (click)="sortById()">Loan ID</th>
+                            <th style="width:600px;">Loan Amount</th>
+                            <th style="width:500px;">Interest Rate</th>
                             <th>Tenure</th>
-                            <th style="width:300px;">Action</th>
+                            <th style="width:800px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,9 +57,9 @@
                             <td>{{ user.interestRate }}</td>
                             <td>{{ user.tenure }}</td>
                             <td>
-                                <button class="btn btn-success" (click)="editEmp(emp.empid)">Approve</button>
+                                <button class="btn btn-success" (click)="approve(user.loanId)">Approve</button>
                                 &nbsp;&nbsp;
-                                <button class="btn btn-danger" (click)="deleteEmp(emp.empid)">Reject</button>
+                                <button class="btn btn-danger" (click)="reject(user.loanId)">Reject</button>
                             </td>
                         </tr>
                     </tbody>

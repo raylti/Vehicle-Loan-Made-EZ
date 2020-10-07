@@ -19,8 +19,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NaturalId;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -41,7 +39,6 @@ public class User {
 	@Column(length = 10)
 	private String gender;
 	
-	@NaturalId
 	@Column(length = 30)
 	private String email;
 	

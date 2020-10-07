@@ -18,7 +18,7 @@
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     <select name="vehicleType" class="form-control" [(ngModel)]="eligible.vehicleType"
-                                        required>
+                                        required (change)="changeMake($event.target.value)">
                                         <option>Car</option>
                                         <option>Bike</option>
                                     </select>
@@ -32,11 +32,9 @@
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     <select name="carMake" class="form-control" id="sel1"
-                                        [(ngModel)]="eligible.vehicleMake" required>
-                                        <option>Hero MotoCorp Ltd</option>
-                                        <option>Maruti Suzuki</option>
-                                        <option>Tata Motors</option>
-                                        <option>Yamaha</option>
+                                        [(ngModel)]="eligible.vehicleMake" required
+                                        (change)="changeModel($event.target.value)">
+                                        <option *ngFor="let mk of make">{{mk}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -48,15 +46,9 @@
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
                                     <select name="carModel" class="form-control" id="sel2"
-                                        [(ngModel)]="eligible.vehicleModel" required>
-                                        <option>Hero Splendor Plus</option>
-                                        <option>Hero HF Deluxe </option>
-                                        <option>Maruti Swift</option>
-                                        <option>Maruti Baleno</option>
-                                        <option>Tata Nexon</option>
-                                        <option>Tata Altroz</option>
-                                        <option>Yamaha MT 15</option>
-                                        <option>Yamaha YZF R15 V3</option>
+                                        [(ngModel)]="eligible.vehicleModel" required
+                                        (change)="changePrice($event.target.value)">
+                                        <option *ngFor="let mode of model">{{mode}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -66,14 +58,11 @@
                             <label class="col-md-4 control-label">Ex-Showroom Price (₹)</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
-                                    <input id="price" name="price" placeholder="Price in Rupees"
-                                        [(ngModel)]="eligible.exShowroomPrice" class="form-control" type="number"
-                                        min="10000" required pattern="[1-9][0-9]{4,}" #ePrice='ngModel' />
+                                    <select id="price" name="price" [(ngModel)]="eligible.exShowroomPrice"
+                                        class="form-control">
+                                        <option *ngFor="let ex of exPrice">{{ex}}</option>
+                                    </select>
                                 </div>
-                                <span *ngIf="ePrice.touched && ePrice.invalid" class="alert-danger">
-                                    Price is invalid!
-                                    Enter Price > ₹ 10,000
-                                </span>
                             </div>
                         </div>
 
@@ -81,14 +70,11 @@
                             <label class="col-md-4 control-label">On Road Price (₹)</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <div class="input-group">
-                                    <input name="onroadPrice" [(ngModel)]="eligible.onRoadPrice" type="number" min="10000"
-                                        id="onroadPrice" placeholder="On Road Price" class="form-control" required
-                                        pattern="[1-9][0-9]{4,}" #oPrice='ngModel' />
+                                    <select id="onRoadPrice" name="onRoadPrice" [(ngModel)]="eligible.onRoadPrice"
+                                        class="form-control">
+                                        <option *ngFor="let on of onRoadPrice">{{on}}</option>
+                                    </select>
                                 </div>
-                                <span *ngIf="oPrice.touched && oPrice.invalid" class="alert-danger">
-                                    Price is invalid!
-                                    Enter Price > ₹ 10,000
-                                </span>
                             </div>
                         </div>
 
@@ -111,10 +97,9 @@
                             <label for="age" class="col-sm-3 control-label">Age </label>
                             <div class="col-md-8 inputGroupContainer">
                                 <input type="number" id="age" placeholder="Age" class="form-control" name="age"
-                                    [(ngModel)]="eligible.age" required pattern="[2-5][0-9]{1}" min="20" max="59"
-                                    #age='ngModel'>
+                                    [(ngModel)]="eligible.age" required pattern="[1-9][0-9]{1}" min="22" #age='ngModel'>
                                 <span *ngIf="age.touched && age.invalid" class="alert-danger">
-                                    Age should be between 20 years to 59 years.
+                                    Invalid Age.
                                 </span>
                             </div>
                         </div>
@@ -142,17 +127,16 @@
                         <div class="form-group">
                             <label for="salary" class="col-sm-3 control-label">Yearly Salary (₹)</label>
                             <div class="col-md-8 inputGroupContainer">
-                                <select name="salary" class="form-control" [(ngModel)]="eligible.annualIncome" required>
-                                    <option>3 lakh to 5 lakh</option>
-                                    <option>5 lakh to 10 lakh</option>
-                                    <option>10 lakh to 15 lakh</option>
-                                    <option>15 lakh to 25 lakh</option>
-                                    <option>Above 25 lakh</option>
-                                </select>
+                                <input id="income" name="income" placeholder="Annual Income" [(ngModel)]="eligible.annualIncome"
+                                class="form-control" value="" type="number" required pattern="[0-9]{1,}"
+                                #income='ngModel' />
+                            <span *ngIf="income.touched && income.invalid" class="alert-danger">
+                                Invalid Annual Income.
+                            </span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="emi" class="col-sm-3 control-label">Existing EMI </label>
+                            <label for="emi" class="col-sm-3 control-label">Existing EMI (₹)</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <input id="emi" name="emi" placeholder="EMI" [(ngModel)]="eligible.emi"
                                     class="form-control" value="" type="number" required pattern="[0-9]{1,}"
@@ -183,7 +167,8 @@
                             <label for="email" class="col-sm-3 control-label">Email </label>
                             <div class="col-md-8 inputGroupContainer">
                                 <input type="email" id="email" placeholder="Email" class="form-control" name="email"
-                                    [(ngModel)]="eligible.email" required #email='ngModel'>
+                                    [(ngModel)]="eligible.email" required
+                                    pattern="[A-Za-z0-9.]+@[a-z0-9.]+\.[A-Za-z]{2,4}$" #email='ngModel'>
                                 <span *ngIf="email.touched && email.invalid" class="alert-danger">
                                     Invalid Email Id!
                                 </span>

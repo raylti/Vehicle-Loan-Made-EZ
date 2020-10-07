@@ -14,7 +14,8 @@ export class LoanOfferComponent implements OnInit {
   interest : number;
   full : number;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router) { 
+  }
 
   ngOnInit() {
   }
@@ -31,14 +32,14 @@ export class LoanOfferComponent implements OnInit {
     var top = Math.pow((1 + monthlyRate), noOfMonth);
     var bottom = top - 1;
     var sp = top / bottom;
-    var emi = ((this.loanAmount * monthlyRate) * sp);
-    var full = noOfMonth * emi;
-    var interest = full - this.loanAmount;
+    this.emi = ((this.loanAmount * monthlyRate) * sp);
+    var full = noOfMonth * this.emi;
+    this.interest = full - this.loanAmount;
 
-    this.result.emi = emi.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.result.emi = this.emi.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     var loanAmount_str = this.loanAmount.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     this.result.total = full.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    this.result.interest = interest.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.result.interest = this.interest.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   applyLoan() {

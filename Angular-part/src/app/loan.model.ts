@@ -11,7 +11,7 @@ export class Eligibility {
     public exShowroomPrice : number;
     public onRoadPrice : number;
     public employmentType : string;
-    public annualIncome : string;
+    public annualIncome : number;
 }
 
 export class User {

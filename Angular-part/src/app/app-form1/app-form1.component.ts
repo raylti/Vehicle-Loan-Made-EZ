@@ -10,6 +10,20 @@ import { User } from '../loan.model';
 })
 export class AppForm1Component implements OnInit {
   user = new User;
+  stateList: Array<any> = [
+    { name: 'Assam', cities: ['Dispur'] },
+    { name: 'Bihar', cities: ['Gaya','Patna'] },
+    { name: 'Karnataka', cities: ['Bangalore','Mysore'] },
+    { name: 'Maharashtra', cities: ['Mumbai','Thane'] },
+    { name: 'Telangana', cities: ['Hyderabad'] },
+    { name: 'WestBengal', cities: ['Kolkata'] },
+  ];
+  
+  cities: Array<any>;
+
+  changeState(count) {
+    this.cities = this.stateList.find(con => con.name == count).cities;
+  }
 
   constructor(private router: Router, private service : VehicleLoanService) { }
 

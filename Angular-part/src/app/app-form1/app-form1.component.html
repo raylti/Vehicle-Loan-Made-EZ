@@ -66,7 +66,7 @@
                      <label class="col-md-4 control-label">Email</label>
                      <div class="col-md-8 inputGroupContainer">
                         <div class="input-group"><input id="email" name="email" [(ngModel)]="user.email"
-                              placeholder="Email" class="form-control" type="email" required="true" #email='ngModel'>
+                              placeholder="Email" class="form-control" type="email" required pattern="[A-Za-z0-9.]+@[a-z0-9.]+\.[A-Za-z]{2,4}$" #email='ngModel'>
                         </div>
                         <span *ngIf="email.touched && email.invalid" class="alert-danger">
                            Invalid Email Id!
@@ -78,10 +78,10 @@
                      <label class="col-md-4 control-label">Password</label>
                      <div class="col-md-8 inputGroupContainer">
                         <div class="input-group"><input id="Password" name="Password" [(ngModel)]="user.password"
-                              placeholder="Password" class="form-control" type="password" required
-                              pattern="[a-z,A-Z,0-9][a-z,A-Z,0-9]{5,}" #pwd='ngModel'></div>
+                              placeholder="Password must contain: Minimum 8 characters atleast 1 Capital Alphabet and 1 No." class="form-control" type="password" required
+                              pattern="^(?=.*[A-Za-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$" #pwd='ngModel'></div>
                         <span *ngIf="pwd.touched && pwd.invalid" class="alert-danger">
-                           Invalid Password! Password should be minimum of 6 characters.
+                           Invalid Password! Password must contain: Minimum 8 characters atleast 1 Capital Alphabet and 1 Number.
                         </span>
                      </div>
                   </div>
@@ -101,14 +101,9 @@
                   <div class="form-group">
                      <label class="col-md-4 control-label">State/Province/Region</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <select name="state" class="form-control" [(ngModel)]="user.state">
-                           <option selected>Assam</option>
-                           <option>Bihar</option>
-                           <option>Karnataka</option>
-                           <option>Maharashtra</option>
-                           <option>Telangana</option>
-                           <option>West Bengal</option>
-                           <option>Other</option>
+                        <select name="state" class="form-control" [(ngModel)]="user.state" (change)="changeState($event.target.value)">
+                           <option *ngFor ="let count of stateList">{{count.name}}</option>
+                        
                         </select>
                      </div>
                   </div>
@@ -117,17 +112,8 @@
                      <label class="col-md-4 control-label">City</label>
                      <div class="col-md-8 inputGroupContainer">
                         <select name="city" class="form-control" [(ngModel)]="user.city">
-                           <option>Bangalore</option>
-                           <option selected>Dispur</option>
-                           <option>Gaya</option>
-                           <option>Hyderabad</option>
-                           <option>Kolkata</option>
-                           <option>New Delhi</option>
-                           <option>Mumbai</option>
-                           <option>Mysore</option>
-                           <option>Patna</option>
-                           <option>Thane</option>
-                           <option>Other</option>
+                           <option *ngFor ="let city of cities">{{city}}</option>
+                           
                         </select>
                      </div>
                   </div>

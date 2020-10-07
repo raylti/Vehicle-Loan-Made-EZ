@@ -1,126 +1,166 @@
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" />
-<!-- Accordion START -->
-<div class="container">
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default" style="margin-bottom:50px;">
-            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-                data-target="#collapseOne">
-                <h4 class="panel-title"><b>Clients</b></h4>
-
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Loan ID</th>
-                                <th>Name</th>
-                                <th>Loan Amount (₹)</th>
-                                <th>Tenure (Years)</th>
-                                <th>Email</th>
-                                <th>Contact No.</th>
-                                <th>Aadhar No.</th>
-                                <th>Pan No.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let users of listApproved">
-                                <td>{{ users.loanId }}</td>
-                                <td>{{ users.user.name }}</td>
-                                <td>{{ users.loanAmount }}</td>
-                                <td>{{ users.tenure }}</td>
-                                <td>{{ users.user.email }}</td>
-                                <td>{{ users.user.mobileNo }}</td>
-                                <td>{{ users.user.identity.aadhaarNo }}</td>
-                                <td>{{ users.user.identity.panNo }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default" style="margin-bottom:50px;">
-            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-                data-target="#collapseTwo">
-                <h4 class="panel-title"><b>Application</b></h4>
-
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Loan ID</th>
-                                <th>Name</th>
-                                <th>Loan Amount (₹)</th>
-                                <th>Tenure (Years)</th>
-                                <th>Email</th>
-                                <th>Contact No.</th>
-                                <th>Aadhar No.</th>
-                                <th>Pan No.</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let users of listPending">
-                                <td>{{ users.loanId }}</td>
-                                <td>{{ users.user.name }}</td>
-                                <td>{{ users.loanAmount }}</td>
-                                <td>{{ users.tenure }}</td>
-                                <td>{{ users.user.email }}</td>
-                                <td>{{ users.user.mobileNo }}</td>
-                                <td>{{ users.user.identity.aadhaarNo }}</td>
-                                <td>{{ users.user.identity.panNo }}</td>
-                                <td>
-                                    <button class="btn btn-success" (click)="approve(users.loanId,users.user.name)">Approve</button>
-                                    &nbsp;&nbsp;
-                                    <button class="btn btn-danger" (click)="reject(users.loanId,users.user.name)">Reject</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-                data-target="#collapseThree">
-                <h4 class="panel-title"><b>Rejected list</b></h4>
-
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Loan ID</th>
-                                <th>Name</th>
-                                <th>Loan Amount (₹)</th>
-                                <th>Tenure (Years)</th>
-                                <th>Email</th>
-                                <th>Contact No.</th>
-                                <th>Aadhar No.</th>
-                                <th>Pan No.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let users of listRejected">
-                                <td>{{ users.loanId }}</td>
-                                <td>{{ users.user.name }}</td>
-                                <td>{{ users.loanAmount }}</td>
-                                <td>{{ users.tenure }}</td>
-                                <td>{{ users.user.email }}</td>
-                                <td>{{ users.user.mobileNo }}</td>
-                                <td>{{ users.user.identity.aadhaarNo }}</td>
-                                <td>{{ users.user.identity.panNo }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="float: right; margin-right: 30px; margin-bottom: 30px; margin-top: 20px;">
+<button type="submit" class="btn btn-danger" (click)="logout()">LogOut</button>
 </div>
+
+<!--Accordion wrapper-->
+<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true" style="margin-top: 100px;">
+
+    <!-- Accordion card -->
+    <div class="card">
+
+        <!-- Card header -->
+        <div class="card-header green lighten-3 z-depth-2" role="tab" id="headingTwo1">
+            <a class="collapsed text-uppercase mb-0 py-1" data-toggle="collapse" data-parent="#accordionEx"
+                href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+                <h5 class="mb-0 white-text font-weight-bold">
+                    Application <i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+
+        <!-- Card body -->
+        <div id="collapseTwo1" class="collapse show" role="tabpanel" aria-labelledby="headingTwo1"
+            data-parent="#accordionEx">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Loan ID</th>
+                            <th>Name</th>
+                            <th>Loan Amount (₹)</th>
+                            <th>Tenure (Years)</th>
+                            <th>Email</th>
+                            <th>Contact No.</th>
+                            <th>Aadhar No.</th>
+                            <th>Pan No.</th>
+                            <th>Approve</th>
+                            <th>Reject</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let users of listPending">
+                            <td>{{ users.loanId }}</td>
+                            <td>{{ users.user.name }}</td>
+                            <td>{{ users.loanAmount }}</td>
+                            <td>{{ users.tenure }}</td>
+                            <td>{{ users.user.email }}</td>
+                            <td>{{ users.user.mobileNo }}</td>
+                            <td>{{ users.user.identity.aadhaarNo }}</td>
+                            <td>{{ users.user.identity.panNo }}</td>
+                            <td>
+                                <button class="btn btn-success"
+                                    (click)="approve(users.loanId,users.user.name)">Approve</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger"
+                                    (click)="reject(users.loanId,users.user.name)">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+
+        <!-- Card header -->
+        <div class="card-header green lighten-2 z-depth-2" role="tab" id="headingTwo2">
+            <a class="collapsed text-uppercase mb-0 py-1" data-toggle="collapse" data-parent="#accordionEx"
+                href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                <h5 style="color: green;">
+                    <b>Clients</b><i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+
+        <!-- Card body -->
+        <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+            data-parent="#accordionEx">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Loan ID</th>
+                            <th>Name</th>
+                            <th>Loan Amount (₹)</th>
+                            <th>Tenure (Years)</th>
+                            <th>Email</th>
+                            <th>Contact No.</th>
+                            <th>Aadhar No.</th>
+                            <th>Pan No.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let users of listApproved">
+                            <td>{{ users.loanId }}</td>
+                            <td>{{ users.user.name }}</td>
+                            <td>{{ users.loanAmount }}</td>
+                            <td>{{ users.tenure }}</td>
+                            <td>{{ users.user.email }}</td>
+                            <td>{{ users.user.mobileNo }}</td>
+                            <td>{{ users.user.identity.aadhaarNo }}</td>
+                            <td>{{ users.user.identity.panNo }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+
+        <!-- Card header -->
+        <div class="card-header green lighten-1 z-depth-2" role="tab" id="headingThree3">
+            <a class="collapsed text-uppercase mb-0 py-1" data-toggle="collapse" data-parent="#accordionEx"
+                href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                <h5 style="color: red;">
+                    <b>Rejected List</b><i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+
+        <!-- Card body -->
+        <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+            data-parent="#accordionEx">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Loan ID</th>
+                            <th>Name</th>
+                            <th>Loan Amount (₹)</th>
+                            <th>Tenure (Years)</th>
+                            <th>Email</th>
+                            <th>Contact No.</th>
+                            <th>Aadhar No.</th>
+                            <th>Pan No.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let users of listRejected">
+                            <td>{{ users.loanId }}</td>
+                            <td>{{ users.user.name }}</td>
+                            <td>{{ users.loanAmount }}</td>
+                            <td>{{ users.tenure }}</td>
+                            <td>{{ users.user.email }}</td>
+                            <td>{{ users.user.mobileNo }}</td>
+                            <td>{{ users.user.identity.aadhaarNo }}</td>
+                            <td>{{ users.user.identity.panNo }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- Accordion card -->
+
+</div>
+<!-- Accordion wrapper -->

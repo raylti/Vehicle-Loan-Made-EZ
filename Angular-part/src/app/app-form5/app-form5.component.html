@@ -1,8 +1,12 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
 <div class="container" style="border: black 1px; background-color: white;">
   <div class="jumbotron"
-    style=" margin-top: 10px; background-image: url('../assets/image8.jpg'); background-repeat: no-repeat; background-size: cover">
+    style=" margin-top: 10px; color:white; background-image: url('../assets/image8.jpg'); background-repeat: no-repeat; background-size: cover;">
     <h1>Identity Details</h1>
     <p>Please Fill Your Identity Details below</p>
   </div>
@@ -22,13 +26,9 @@
                 <span *ngIf="aadhaar.touched && aadhaar.invalid" class="alert-danger">
                   Enter 12 digit Aadhaar number!
                 </span>
-
-                <div class="input-group" style="margin-top: 20px;">
-                  <div class="custom-file">
-                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
-                      name="aadhaar">
-                    <label class="custom-file-label" for="customFile">Upload Aadhaar here</label>
-                  </div>
+                <div class="default-file-upload" style="margin-top: 20px;">
+                  <input type="file" id="uploadedFile" name="uploadedFile" class="form-control form-control-md"
+                    accept=".pdf, .jpg,.jpeg" />
                 </div>
               </div>
             </div>
@@ -46,12 +46,9 @@
                   (Ex:- EQDFP1254T)
                 </span>
 
-                <div class="input-group" style="margin-top: 20px;">
-                  <div class="custom-file">
-                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
-                      name="pan">
-                    <label class="custom-file-label" for="customFile">Upload Pan here</label>
-                  </div>
+                <div class="default-file-upload" style="margin-top: 20px;">
+                  <input input type="file" id="uploadedFile" name="uploadedFile" class="form-control form-control-md"
+                    accept=".pdf, .jpg,.jpeg" />
                 </div>
               </div>
             </div>
@@ -60,29 +57,25 @@
               <label class="col-md-4 control-label">Photo <i class="fa fa-user"
                   style="font-size:18px;color:green"></i></label>
               <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
-                      name="photo">
-                    <label class="custom-file-label" for="customFile">Choose Photo</label>
-                  </div>
+                <div class="default-file-upload">
+                  <input input type="file" id="uploadedFile" name="uploadedFile" class="form-control form-control-md"
+                    accept=".pdf, .jpg,.jpeg" />
                 </div>
               </div>
             </div>
+
 
             <div class="form-group">
               <label class="col-md-4 control-label">Monthly salary slip <i class="fa fa-list"
                   style="font-size:18px;color:green"></i></label>
               <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" (change)="onFileSelected($event)" class="custom-file-input" id="customFile"
-                      name="salarySlip">
-                    <label class="custom-file-label" for="customFile">Choose Salary Slip</label>
-                  </div>
+                <div class="default-file-upload">
+                  <input input type="file" id="uploadedFile" name="uploadedFile" class="form-control form-control-md"
+                    accept=".pdf, .jpg,.jpeg" />
                 </div>
               </div>
             </div>
+
 
             <div class="col-md-8 inputGroupContainer">
               <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px;"

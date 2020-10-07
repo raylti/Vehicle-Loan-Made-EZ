@@ -11,11 +11,11 @@
                <form class="well form-horizontal" (ngSubmit)="saveUser()" #addForm="ngForm">
 
                   <div class="form-group">
-                     <label for="firstName" class="col-md-4 control-label">First Name</label>
+                     <label for="firstName" class="col-md-4 control-label">Name</label>
                      <div class="col-md-8 inputGroupContainer">
                         <input id="firstName" name="firstName" [(ngModel)]="user.name"
-                           placeholder="Enter your First Name" class="form-control" type="text" required
-                           pattern="[A-Z][a-z,A-Z]{2,}" #name='ngModel'>
+                           placeholder="Enter your Name" class="form-control" type="text" required
+                           pattern="[A-Z][a-z , ,A-Z]{2,}" #name='ngModel'>
                         <span *ngIf="name.touched && name.invalid" class="alert-danger">
                            Invalid name!
                            First letter should be capital.
@@ -91,7 +91,7 @@
                      <div class="col-md-8 inputGroupContainer">
                         <div class="input-group"><input id="address" name="address" [(ngModel)]="user.address"
                               placeholder="Enter your Address" class="form-control" type="text" required
-                              pattern="[A-Z,a-z,0-9][A-Z,a-z,0-9, ,/,-,.]{2,}" #addr='ngModel'></div>
+                              pattern="[A-Z,a-z,0-9][A-Z,a-z,0-9, ,/,.,-]{2,}" #addr='ngModel'></div>
                         <span *ngIf="addr.touched && addr.invalid" class="alert-danger">
                            Invalid Address!
                         </span>
@@ -111,7 +111,7 @@
                   <div class="form-group">
                      <label class="col-md-4 control-label">City</label>
                      <div class="col-md-8 inputGroupContainer">
-                        <select name="city" class="form-control" [(ngModel)]="user.city">
+                        <select name="city" class="form-control" [(ngModel)]="user.city" required>
                            <option *ngFor ="let city of cities">{{city}}</option>
                            
                         </select>

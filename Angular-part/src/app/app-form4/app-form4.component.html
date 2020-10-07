@@ -20,7 +20,7 @@
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <input id="amount" name="amount" placeholder="Amount in Rupees" class="form-control" type="number"
-                    [(ngModel)]="loan.loanAmount" required pattern="[1-4][0-9]{5,6}" min="100000" max="499999" step="10000"
+                    [(ngModel)]="loan.loanAmount" required pattern="[1-4][0-9]{5,6}" min="100000" max="5000000" step="10000"
                     #principal='ngModel' />
                 </div>
                 <span *ngIf="principal.touched && principal.invalid" class="alert-danger">

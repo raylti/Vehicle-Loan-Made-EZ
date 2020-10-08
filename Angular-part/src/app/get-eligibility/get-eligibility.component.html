@@ -2,7 +2,7 @@
     <div class="jumbotron"
         style=" margin-top: 10px; background-image: url('../assets/image1.jpg'); background-repeat: no-repeat; background-size:cover">
         <h1>Apply Loan!</h1>
-        <p> Please Fill Your Details here </p>
+        <p style="font-size: 20px;"><b> Please Fill Your Details here </b></p>
     </div>
     <table class="table table-default">
         <tbody>
@@ -128,7 +128,7 @@
                             <label for="salary" class="col-sm-3 control-label">Yearly Salary (₹)</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <input id="income" name="income" placeholder="Annual Income" [(ngModel)]="eligible.annualIncome"
-                                class="form-control" value="" type="number" required pattern="[0-9]{1,}"
+                                class="form-control" value="" type="number" step="1000" required pattern="[0-9]{1,}"
                                 #income='ngModel' />
                             <span *ngIf="income.touched && income.invalid" class="alert-danger">
                                 Invalid Annual Income.
@@ -139,7 +139,7 @@
                             <label for="emi" class="col-sm-3 control-label">Existing EMI (₹)</label>
                             <div class="col-md-8 inputGroupContainer">
                                 <input id="emi" name="emi" placeholder="EMI" [(ngModel)]="eligible.emi"
-                                    class="form-control" value="" type="number" required pattern="[0-9]{1,}"
+                                    class="form-control" value="" type="number" step="100" required pattern="[0-9]{1,}"
                                     #emi='ngModel' />
                                 <span *ngIf="emi.touched && emi.invalid" class="alert-danger">
                                     Invalid EMI value!

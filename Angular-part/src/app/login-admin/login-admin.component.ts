@@ -16,7 +16,7 @@ export class LoginAdminComponent implements OnInit {
   }
 
   adminDashboard() {
-    if(this.admin.email == "ray123@gmail.com" && this.admin.password == "gladiator")
+    if(this.admin.email == "admin@ridealong.com" && this.admin.password == "gladiator")
       this.router.navigate(['adminDashboard']);
     else
       alert("Invalid Email or Password");

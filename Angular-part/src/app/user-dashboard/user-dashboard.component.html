@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 25px; color: white;">
                     Welcome &nbsp;{{ uname }}</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" [routerLink]="['/userDashboard']">Profile</a>
@@ -34,7 +34,7 @@
             <div id="collapseTwo1" class="collapse show" role="tabpanel" aria-labelledby="headingTwo1"
                 data-parent="#accordionEx">
                 <div class="card-body">
-                    <table class="table table-bordered table-striped table-dark">
+                    <table class="table table-bordered table-striped table-dark" style="font-size: 20px;">
                         <tbody>
                             <tr>
                                 <td>User ID</td>
@@ -101,7 +101,7 @@
             <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
                 data-parent="#accordionEx">
                 <div class="card-body">
-                    <table class="table table-bordered table-striped table-dark">
+                    <table class="table table-bordered table-striped table-dark" style="font-size: 20px;">
                         <tbody>
                             <tr>
                                 <td>Loan ID</td>
@@ -150,8 +150,12 @@
                 data-parent="#accordionEx">
                 <div class="card-body">
                     <ng-container *ngIf="loan.loanStatus=='Approved' ; else rejected">
-                        <table class="table table-bordered table-striped table-dark">
+                        <table class="table table-bordered table-striped table-dark" style="font-size: 20px;">
                             <tbody>
+                                <tr>
+                                    <td>Date of Approval</td>
+                                    <td> {{ "9th October, 2020" }}</td>
+                                </tr>
                                 <tr>
                                     <td>Loan Amount</td>
                                     <td>₹ {{ result.amount }}</td>
@@ -161,18 +165,26 @@
                                     <td>₹ {{ result.emi }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Total Interest Paybale</td>
+                                    <td>No. of EMI's</td>
+                                    <td> {{ loan.tenure*12 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Interest Payable</td>
                                     <td>₹ {{ result.interest }}</td>
                                 </tr>
                                 <tr>
                                     <td>Total Payment (Principal + Interest)</td>
                                     <td>₹ {{ result.total }}</td>
                                 </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">Note : EMI will be automatically deducted on 15th of every month.
+                                        Keep sufficient amount in your account. </td>
+                                </tr>
                             </tbody>
                         </table>
                     </ng-container>
                     <ng-template #rejected>
-                        <b style="color: red;">Sorry your loan is not approved.</b>
+                        <b style="color: red; font-size: 20px;">Sorry your loan is not approved.</b>
                     </ng-template>
                 </div>
             </div>

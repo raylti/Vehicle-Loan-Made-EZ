@@ -12,7 +12,7 @@
 	<bean id="emf"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<!-- <property name = "dataSource" ref = "ds" /> -->
-		<property name="persistenceUnitName" value="SpringREST" />
+		<property name="persistenceUnitName" value="SpringREST1" />
 	</bean>
 
 	<bean id="txnMgr"

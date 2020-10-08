@@ -22,10 +22,10 @@ export class AppForm3Component implements OnInit {
   }
 
   vehicleList: Array<any> = [
-    { name: 'Hero MotoCorp Ltd', model: ['Hero Splendor Plus','Hero HF Deluxe'] },
-    { name: 'Maruti Suzuki', model: ['Maruti Swift','Maruti Baleno'] },
-    { name: 'Tata Motors', model: ['Tata Nexon','Tata Altroz'] },
-    { name: 'Yamaha', model: ['Yamaha MT 15','Yamaha YZF R15 V3'] },
+    { name: 'Hero MotoCorp Ltd', model: ['-- Select your vehicle model --','Hero Splendor Plus','Hero HF Deluxe'] },
+    { name: 'Maruti Suzuki', model: ['-- Select your vehicle model --','Maruti Swift','Maruti Baleno'] },
+    { name: 'Tata Motors', model: ['-- Select your vehicle model --','Tata Nexon','Tata Altroz'] },
+    { name: 'Yamaha', model: ['-- Select your vehicle model --','Yamaha MT 15','Yamaha YZF R15 V3'] },
   ];
   
   model: Array<any>;

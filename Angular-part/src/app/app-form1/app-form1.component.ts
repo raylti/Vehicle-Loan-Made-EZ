@@ -11,12 +11,12 @@ import { User } from '../loan.model';
 export class AppForm1Component implements OnInit {
   user = new User;
   stateList: Array<any> = [
-    { name: 'Assam', cities: ['Select your city','Dispur','Tezpur','Silchar'] },
-    { name: 'Bihar', cities: ['Select your city','Gaya','Patna'] },
-    { name: 'Karnataka', cities: ['Select your city','Bangalore','Mysore'] },
-    { name: 'Maharashtra', cities: ['Select your city','Mumbai','Thane'] },
-    { name: 'Telangana', cities: ['Select your city','Hyderabad','Warangal'] },
-    { name: 'WestBengal', cities: ['Select your city','Kolkata','Durgapur'] },
+    { name: 'Assam', cities: ['-- Select your city --','Dispur','Tezpur','Silchar'] },
+    { name: 'Bihar', cities: ['-- Select your city --','Gaya','Patna'] },
+    { name: 'Karnataka', cities: ['-- Select your city --','Bangalore','Mysore'] },
+    { name: 'Maharashtra', cities: ['-- Select your city --','Mumbai','Thane'] },
+    { name: 'Telangana', cities: ['-- Select your city --','Hyderabad','Warangal'] },
+    { name: 'WestBengal', cities: ['-- Select your city --','Kolkata','Durgapur'] },
   ];
   
   cities: Array<any>;

@@ -2,6 +2,8 @@
  * Defining methods for the use of User.
  * @author: Rahul
  * @Version:1.0
+ * @author Abhinav
+ * @version:1.1
  * 
  */
 

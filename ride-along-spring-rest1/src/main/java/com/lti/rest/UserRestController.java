@@ -1,9 +1,12 @@
 /**
  * Controller class for rest connection of User's methods.
- * @author: Abhinav
- * @Version:1.0
+ * @author:  Abhinav
+ * @Version: 1.0
+ * @author : Rahul	
+ * @Version: 1.1
  * 
  */
+
 package com.lti.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;

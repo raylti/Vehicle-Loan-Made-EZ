@@ -1,6 +1,6 @@
 /**
  * Pojo class for storing email and password for verification.
- * @author: Rahul 
+ * @author: Yugandhara
  * @Version:1.0
   
  */

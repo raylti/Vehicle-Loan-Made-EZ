@@ -17,6 +17,7 @@ export class AppForm1Component implements OnInit {
     { name: 'Maharashtra', cities: ['-- Select your city --','Mumbai','Thane'] },
     { name: 'Telangana', cities: ['-- Select your city --','Hyderabad','Warangal'] },
     { name: 'WestBengal', cities: ['-- Select your city --','Kolkata','Durgapur'] },
+    { name: 'Tamil Nadu', cities: ['-- Select your city --','Chennai','Vellore'] },
   ];
   
   cities: Array<any>;

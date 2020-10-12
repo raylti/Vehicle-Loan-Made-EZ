@@ -28,11 +28,11 @@
               <div class="col-md-8 inputGroupContainer">
                 <div class="input-group">
                   <input id="annualIncome" name="annualIncome" placeholder="Annual Income" [(ngModel)]="employ.annualIncome" class="form-control"
-                    value="" type="number" required pattern="[1-9][0-9]{5,}" #annual='ngModel' min="100000" step="10000"/>
+                    value="" type="number" required pattern="^([3-9][0-9]{5,}|[1-9][0-9]{6,})$" #annual='ngModel' min="300000" step="10000"/>
                 </div>
                 <span *ngIf="annual.touched && annual.invalid" class="alert-danger">
                   Invalid annual income.
-                  Annual income should be more than 1 lakh.
+                  Annual income should be more than 3 lakh.
                 </span>
               </div>
             </div>

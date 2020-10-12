@@ -63,7 +63,7 @@ export class GetEligibilityComponent implements OnInit {
 
   priceList: Array<any> = [
     { name: 'Hero Splendor Plus', exPrice: ['₹ 40,000'], onRoadPrice:['₹ 50,000'] },
-    { name: 'Hero Hero HF Deluxe', exPrice: ['₹ 50,000'], onRoadPrice:['₹ 60,000'] },
+    { name: 'Hero HF Deluxe', exPrice: ['₹ 50,000'], onRoadPrice:['₹ 60,000'] },
     { name: 'Maruti Swift', exPrice: ['₹ 6,00,000'], onRoadPrice:['₹ 6,50,000'] },
     { name: 'Maruti Baleno', exPrice: ['₹ 8,00,000'], onRoadPrice:['₹ 9,00,000'] },
     { name: 'Tata Nexon', exPrice: ['₹ 7,00,000'], onRoadPrice:['₹ 7,50,000'] },
